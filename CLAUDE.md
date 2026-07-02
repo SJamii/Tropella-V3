@@ -52,14 +52,19 @@ use the token utilities.
 
 | Token | Value | Use |
 |---|---|---|
-| `bg-base` | `#14110C` | page background |
+| `bg-canvas` | `#14110C` | page background (named `canvas`, not `base` — `base` clashes with the `text-base` font-size utility) |
 | `bg-surface` | `#1A160F` | alternating section bg |
 | `bg-surface-2` | `#211C14` | cards / feature tiles |
 | `bg-field` | `#171309` | form inputs |
 | `text-ink` | `#F5EFE3` | primary text |
+| `text-ink-soft` | `#CFC6B5` | nav links / bright meta |
 | `text-ink-muted` | `#BDB3A1` | body copy |
-| `text-ink-dim` | `#A89E8C` | captions / meta |
+| `text-ink-dim` | `#A89E8C` | captions / meta / footer links |
 | `text-ink-faint` | `#7A715F` | footer legal |
+
+> The design uses ~9 near-identical muted cream shades; these were consolidated
+> into the ramp above (lightness deltas <5%, imperceptible on the dark bg). Use
+> the nearest token rather than introducing new hex values.
 | `text/bg-brand` | `#F4A93C` | primary orange accent |
 | `brand-deep` | `#E9663B` | gradient end / warm |
 | `brand-soft` | `#F4C277` | orange text on dark |
@@ -86,8 +91,12 @@ to this palette in `:root` — the app is **always dark**, no light theme.
   mobile / tablet / desktop. Tap targets ≥ 44px, no horizontal overflow.
 - **Icons:** `<Icon name="spa" />` wrapper over `.material-symbols-outlined`.
   Use the exact Material Symbol names from the design.
-- **Styling:** Tailwind utilities + tokens only. Variants via CVA + `cn()`
-  (see `components/ui/button.tsx`). No inline `style={{}}`, no CSS Modules.
+- **Styling:** Tailwind utilities + tokens only. Variants via CVA + `cn()`.
+  No inline `style={{}}` (except dynamic values like the icon `FILL` axis), no CSS Modules.
+- **Buttons:** `components/ui/button.tsx` adds brand variants `brand` (orange pill),
+  `leaf` (green pill), `brandOutline`, plus pill sizes `pill` (nav) / `pillLg` (hero).
+  Use `asChild` to render a `<Link>`/`<a>` as a CTA.
+- **Gradients:** Tailwind v4 uses `bg-linear-to-*` (NOT `bg-gradient-to-*`).
 - **Components:** small, single-purpose, typed props. Repeated UI (eyebrow labels,
   section headings, cards) is extracted, not copy-pasted.
 - **Images:** the design has no real assets — use the `ImagePlaceholder` component;
@@ -105,7 +114,7 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 ## Build progress
 
 - [x] Step 1 — scaffold: tokens, fonts, globals, layout, email infra, this doc
-- [ ] Step 2 — layout shell: SiteHeader + SiteFooter (+ Icon, Eyebrow)
+- [x] Step 2 — layout shell: SiteHeader + SiteFooter (+ Icon, Eyebrow, Logo, Button variants)
 - [ ] Sections: Hero → Marquee → DualAudience → Range → Process → WaysToEnjoy →
       Wholesale → About → Testimonials → Newsletter → Contact
 

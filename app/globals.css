@@ -33,13 +33,15 @@
   --color-ring: var(--ring);
 
   /* Tropella brand surfaces */
-  --color-base: #14110c;      /* page background            */
+  --color-canvas: #14110c;    /* page background (not "base": clashes w/ text-base) */
   --color-surface: #1a160f;   /* alternating section bg     */
   --color-surface-2: #211c14; /* cards / feature tiles      */
   --color-field: #171309;     /* form inputs                */
 
-  /* Tropella text ramp */
+  /* Tropella text ramp (design has ~9 near-identical cream shades; */
+  /* consolidated to these — deltas are imperceptible on dark).      */
   --color-ink: #f5efe3;       /* primary text               */
+  --color-ink-soft: #cfc6b5;  /* nav links / bright meta    */
   --color-ink-muted: #bdb3a1; /* body copy                  */
   --color-ink-dim: #a89e8c;   /* captions / meta            */
   --color-ink-faint: #7a715f; /* footer legal               */
@@ -132,25 +134,25 @@
     @apply font-sans;
   }
   body {
-    @apply bg-base text-ink;
+    @apply bg-canvas text-ink;
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
     background: var(--color-brand);
-    color: var(--color-base);
+    color: var(--color-canvas);
   }
   ::-webkit-scrollbar {
     width: 11px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-base);
+    background: var(--color-canvas);
   }
   ::-webkit-scrollbar-thumb {
     background: #3a3225;
     border-radius: 6px;
-    border: 3px solid var(--color-base);
+    border: 3px solid var(--color-canvas);
   }
 }
 

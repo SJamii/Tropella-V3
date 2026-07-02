@@ -19,6 +19,12 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
+        // --- Tropella brand pill CTAs ---
+        brand:
+          "bg-primary font-bold text-primary-foreground hover:-translate-y-0.5 hover:bg-primary hover:shadow-[0_14px_34px_rgba(244,169,60,0.38)]",
+        leaf: "bg-secondary font-bold text-secondary-foreground hover:-translate-y-0.5 hover:bg-secondary hover:shadow-[0_14px_32px_rgba(134,192,63,0.32)]",
+        brandOutline:
+          "border-white/20 bg-transparent font-semibold text-ink hover:border-white/50 hover:bg-white/5",
       },
       size: {
         default:
@@ -32,6 +38,9 @@ const buttonVariants = cva(
         "icon-sm":
           "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
+        // --- Tropella pill sizes (used with brand/leaf/brandOutline) ---
+        pill: "h-auto gap-2 rounded-full px-5 py-[11px] text-sm",
+        pillLg: "h-auto gap-2 rounded-full px-7 py-4 text-base",
       },
     },
     defaultVariants: {
