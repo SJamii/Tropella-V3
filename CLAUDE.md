@@ -118,7 +118,8 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] Reveal (scroll-in) + ImagePlaceholder shared components
 - [x] Hero
 - [x] Trust Marquee (+ reusable Marquee)
-- [ ] Sections: DualAudience → Range → Process → WaysToEnjoy →
+- [x] Dual Audience
+- [ ] Sections: Range → Process → WaysToEnjoy →
       Wholesale → About → Testimonials → Newsletter → Contact
 
 Build one component at a time; pause for review after each.
