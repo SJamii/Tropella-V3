@@ -117,7 +117,8 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] Step 2 — layout shell: SiteHeader + SiteFooter (+ Icon, Eyebrow, Logo, Button variants)
 - [x] Reveal (scroll-in) + ImagePlaceholder shared components
 - [x] Hero
-- [ ] Sections: Marquee → DualAudience → Range → Process → WaysToEnjoy →
+- [x] Trust Marquee (+ reusable Marquee)
+- [ ] Sections: DualAudience → Range → Process → WaysToEnjoy →
       Wholesale → About → Testimonials → Newsletter → Contact
 
 Build one component at a time; pause for review after each.
