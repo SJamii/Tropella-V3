@@ -126,6 +126,7 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] About (two-column journey)
 - [x] Testimonials (3 review cards)
 - [x] Farm to Export (5-step cards, scroll-focus on mobile)
-- [ ] Sections: Newsletter → Contact
+- [x] Newsletter (gradient card + NewsletterForm via useActionState)
+- [ ] Sections: Contact
 
 Build one component at a time; pause for review after each.

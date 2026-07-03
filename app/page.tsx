@@ -8,6 +8,7 @@ import { Wholesale } from "@/components/sections/wholesale";
 import { FarmToExport } from "@/components/sections/farm-to-export";
 import { About } from "@/components/sections/about";
 import { Testimonials } from "@/components/sections/testimonials";
+import { Newsletter } from "@/components/sections/newsletter";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <FarmToExport />
       <About />
       <Testimonials />
+      <Newsletter />
     </main>
   );
 }
