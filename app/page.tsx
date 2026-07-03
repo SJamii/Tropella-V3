@@ -5,6 +5,7 @@ import { Range } from "@/components/sections/range";
 import { Process } from "@/components/sections/process";
 import { WaysToEnjoy } from "@/components/sections/ways-to-enjoy";
 import { Wholesale } from "@/components/sections/wholesale";
+import { FarmToExport } from "@/components/sections/farm-to-export";
 import { About } from "@/components/sections/about";
 import { Testimonials } from "@/components/sections/testimonials";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Process />
       <WaysToEnjoy />
       <Wholesale />
+      <FarmToExport />
       <About />
       <Testimonials />
     </main>

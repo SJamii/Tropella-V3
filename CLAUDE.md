@@ -125,6 +125,7 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] Wholesale (redesigned: cards + CountUp stats + scroll-focus feature tiles)
 - [x] About (two-column journey)
 - [x] Testimonials (3 review cards)
-- [ ] Sections: Farm to Export → Newsletter → Contact
+- [x] Farm to Export (5-step cards, scroll-focus on mobile)
+- [ ] Sections: Newsletter → Contact
 
 Build one component at a time; pause for review after each.
