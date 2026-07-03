@@ -13,7 +13,7 @@ import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
-    <main>
+    <main id="tp-main">
       <Hero />
       <TrustMarquee />
       <DualAudience />

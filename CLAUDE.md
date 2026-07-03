@@ -128,6 +128,6 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] Farm to Export (5-step cards, scroll-focus on mobile)
 - [x] Newsletter (gradient card + NewsletterForm via useActionState)
 - [x] Contact (channels + ContactForm via useActionState)
-- [ ] Final pass: metadata/OG, a11y sweep, responsive QA
+- [x] Final pass: metadata/OG + viewport, skip link + landmarks, responsive review
 
 Build one component at a time; pause for review after each.

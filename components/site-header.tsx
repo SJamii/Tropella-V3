@@ -39,7 +39,10 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-[18px] md:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-[30px] lg:flex">
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-[30px] lg:flex"
+        >
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}

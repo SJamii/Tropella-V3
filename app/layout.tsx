@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -20,10 +20,55 @@ const body = Hanken_Grotesk({
   display: "swap",
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tropella.com";
+const TITLE = "Tropella — From Tropics to your Table & Factory";
+const DESCRIPTION =
+  "Premium tropical dried fruits, dried vegetables, and natural powders — handpicked and slow-dried for discerning kitchens and innovative manufacturers alike.";
+
 export const metadata: Metadata = {
-  title: "Tropella — From Tropics to your Table & Factory",
-  description:
-    "Premium tropical dried fruits, dried vegetables, and natural powders — handpicked and slow-dried for discerning kitchens and innovative manufacturers alike.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: "%s · Tropella",
+  },
+  description: DESCRIPTION,
+  applicationName: "Tropella",
+  keywords: [
+    "dried fruit",
+    "dried mango",
+    "tropical fruit powder",
+    "moringa powder",
+    "wholesale dried fruit",
+    "bulk dried fruit export",
+    "natural fruit powders",
+  ],
+  authors: [{ name: "Tropella" }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Tropella",
+    url: SITE_URL,
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "en_US",
+    images: [
+      {
+        url: "/hero-product.jpeg",
+        alt: "Tropella premium tropical dried fruit",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/hero-product.jpeg"],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#14110C",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -55,6 +100,12 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <a
+          href="#tp-main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:font-semibold focus:text-canvas"
+        >
+          Skip to content
+        </a>
         <SiteHeader />
         {children}
         <SiteFooter />
