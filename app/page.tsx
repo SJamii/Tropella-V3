@@ -6,6 +6,7 @@ import { Process } from "@/components/sections/process";
 import { WaysToEnjoy } from "@/components/sections/ways-to-enjoy";
 import { Wholesale } from "@/components/sections/wholesale";
 import { About } from "@/components/sections/about";
+import { Testimonials } from "@/components/sections/testimonials";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <WaysToEnjoy />
       <Wholesale />
       <About />
+      <Testimonials />
     </main>
   );
 }

@@ -124,6 +124,7 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] Ways to Enjoy (7-tile image bento)
 - [x] Wholesale (redesigned: cards + CountUp stats + scroll-focus feature tiles)
 - [x] About (two-column journey)
-- [ ] Sections: Testimonials → Newsletter → Contact
+- [x] Testimonials (3 review cards)
+- [ ] Sections: Farm to Export → Newsletter → Contact
 
 Build one component at a time; pause for review after each.
