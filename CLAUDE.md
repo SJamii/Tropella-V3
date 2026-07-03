@@ -120,7 +120,8 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] Trust Marquee (+ reusable Marquee)
 - [x] Dual Audience
 - [x] Range (bento grid + reusable ProductCard)
-- [ ] Sections: Process → WaysToEnjoy →
+- [x] Process (+ reusable SectionHeading)
+- [ ] Sections: WaysToEnjoy →
       Wholesale → About → Testimonials → Newsletter → Contact
 
 Build one component at a time; pause for review after each.
