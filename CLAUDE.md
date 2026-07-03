@@ -121,7 +121,7 @@ to this palette in `:root` — the app is **always dark**, no light theme.
 - [x] Dual Audience
 - [x] Range (bento grid + reusable ProductCard)
 - [x] Process (+ reusable SectionHeading)
-- [ ] Sections: WaysToEnjoy →
-      Wholesale → About → Testimonials → Newsletter → Contact
+- [x] Ways to Enjoy (7-tile image bento)
+- [ ] Sections: Wholesale → About → Testimonials → Newsletter → Contact
 
 Build one component at a time; pause for review after each.
