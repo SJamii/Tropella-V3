@@ -9,6 +9,7 @@ import { FarmToExport } from "@/components/sections/farm-to-export";
 import { About } from "@/components/sections/about";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Newsletter } from "@/components/sections/newsletter";
+import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <About />
       <Testimonials />
       <Newsletter />
+      <Contact />
     </main>
   );
 }
