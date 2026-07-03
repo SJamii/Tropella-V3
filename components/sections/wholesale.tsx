@@ -33,7 +33,7 @@ export function Wholesale() {
           <Reveal className="order-2 h-full lg:order-1">
             <div className="relative h-full min-h-[440px] w-full overflow-hidden rounded-[26px]">
               <Image
-                src="/global_supply.jpeg"
+                src="/global_supply_new.png"
                 alt="Tropella industrial-scale dehydration facility"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

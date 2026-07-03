@@ -5,6 +5,7 @@ import { Range } from "@/components/sections/range";
 import { Process } from "@/components/sections/process";
 import { WaysToEnjoy } from "@/components/sections/ways-to-enjoy";
 import { Wholesale } from "@/components/sections/wholesale";
+import { About } from "@/components/sections/about";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Process />
       <WaysToEnjoy />
       <Wholesale />
+      <About />
     </main>
   );
 }
