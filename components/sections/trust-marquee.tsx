@@ -13,7 +13,7 @@ const ITEMS = [
 
 export function TrustMarquee() {
   return (
-    <section className="border-y border-white/[0.07] py-[22px]">
+    <section className="border-y border-border py-[22px]">
       <Marquee>
         {ITEMS.map((item) => (
           <span

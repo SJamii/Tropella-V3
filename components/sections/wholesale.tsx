@@ -26,7 +26,10 @@ const STATS = [
 
 export function Wholesale() {
   return (
-    <section id="tp-wholesale" className="border-t border-white/6 bg-surface">
+    <section
+      id="tp-wholesale"
+      className="theme-dark border-t border-border bg-surface"
+    >
       <div className="mx-auto max-w-7xl px-6 py-22.5 md:px-8">
         {/* Intro: facility image (left) + copy (right) */}
         <div className="mb-[60px] grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
@@ -66,7 +69,7 @@ export function Wholesale() {
                 <div
                   key={cred.label}
                   className={cn(
-                    "rounded-2xl border border-white/8 bg-surface-2 p-[18px]",
+                    "rounded-2xl border border-border bg-surface-2 p-[18px]",
                     cred.wide && "col-span-2",
                   )}
                 >
@@ -80,7 +83,7 @@ export function Wholesale() {
               ))}
             </div>
 
-            <div className="mt-7 grid grid-cols-3 gap-4 border-t border-white/8 pt-6 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-4">
+            <div className="mt-7 grid grid-cols-3 gap-4 border-t border-border pt-6 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-4">
               {STATS.map((stat, i) => (
                 <div key={stat.label}>
                   <CountUp

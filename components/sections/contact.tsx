@@ -60,7 +60,7 @@ function Channel({ icon, tone, label, value, href }: Channel) {
   );
 
   const base =
-    "flex items-center gap-4 rounded-[18px] border border-white/7 bg-surface-2 p-[22px] transition-colors";
+    "flex items-center gap-4 rounded-[18px] border border-border bg-surface-2 p-[22px] transition-colors";
 
   return href ? (
     <a href={href} className={cn(base, t.hover)}>
@@ -75,7 +75,7 @@ export function Contact() {
   return (
     <section
       id="tp-contact"
-      className="border-t border-white/6 bg-surface"
+      className="border-t border-border bg-surface"
     >
       <div className="mx-auto max-w-7xl px-6 py-22.5 md:px-8">
         <SectionHeading

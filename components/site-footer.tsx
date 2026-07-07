@@ -25,7 +25,7 @@ const SOCIALS = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/[0.07] px-6 pt-[60px] pb-[34px] md:px-8">
+    <footer className="border-t border-border px-6 pt-[60px] pb-[34px] md:px-8">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
         {/* Brand */}
         <div className="col-span-2 lg:col-span-1">
@@ -40,7 +40,7 @@ export function SiteFooter() {
                 key={social.name}
                 type="button"
                 aria-label={social.label}
-                className="flex size-[38px] items-center justify-center rounded-[11px] border border-white/[0.08] bg-surface-2 text-ink-soft transition-colors hover:text-ink"
+                className="flex size-[38px] items-center justify-center rounded-[11px] border border-border bg-surface-2 text-ink-soft transition-colors hover:text-ink"
               >
                 <Icon name={social.name} className="text-[19px]" />
               </button>
@@ -90,7 +90,7 @@ export function SiteFooter() {
       </div>
 
       {/* Legal bar */}
-      <div className="mx-auto mt-10 flex max-w-7xl flex-wrap items-center justify-between gap-4 border-t border-white/[0.07] pt-6">
+      <div className="mx-auto mt-10 flex max-w-7xl flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
         <span className="text-[13.5px] text-ink-faint">
           © 2026 Tropella Organic Atelier. Hand-picked tropical excellence.
         </span>

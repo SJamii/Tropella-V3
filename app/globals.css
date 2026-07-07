@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 /* ------------------------------------------------------------------ */
 /*  Tropella design tokens                                             */
@@ -32,26 +33,29 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Tropella brand surfaces */
-  --color-canvas: #14110c;    /* page background (not "base": clashes w/ text-base) */
-  --color-surface: #1a160f;   /* alternating section bg     */
-  --color-surface-2: #211c14; /* cards / feature tiles      */
-  --color-field: #171309;     /* form inputs                */
+  /* Tropella brand surfaces (themeable — raw values in :root / .light) */
+  --color-canvas: var(--canvas);      /* page background (not "base": clashes w/ text-base) */
+  --color-surface: var(--surface);    /* alternating section bg     */
+  --color-surface-2: var(--surface-2);/* cards / feature tiles      */
+  --color-field: var(--field);        /* form inputs                */
 
   /* Tropella text ramp (design has ~9 near-identical cream shades; */
   /* consolidated to these — deltas are imperceptible on dark).      */
-  --color-ink: #f5efe3;       /* primary text               */
-  --color-ink-soft: #cfc6b5;  /* nav links / bright meta    */
-  --color-ink-muted: #bdb3a1; /* body copy                  */
-  --color-ink-dim: #a89e8c;   /* captions / meta            */
-  --color-ink-faint: #7a715f; /* footer legal               */
+  --color-ink: var(--ink);            /* primary text               */
+  --color-ink-soft: var(--ink-soft);  /* nav links / bright meta    */
+  --color-ink-muted: var(--ink-muted);/* body copy                  */
+  --color-ink-dim: var(--ink-dim);    /* captions / meta            */
+  --color-ink-faint: var(--ink-faint);/* footer legal               */
 
-  /* Tropella accents */
+  /* Elevation mix color for hover lightening (white in dark, black in light) */
+  --color-elevate: var(--elevate);
+
+  /* Tropella accents (constant across themes) */
   --color-brand: #f4a93c;      /* primary orange            */
   --color-brand-deep: #e9663b; /* gradient end / warm       */
-  --color-brand-soft: #f4c277; /* orange text on dark       */
+  --color-brand-soft: var(--brand-soft); /* orange text on surface */
   --color-leaf: #86c03f;       /* green                     */
-  --color-leaf-soft: #a7d26e;  /* green text on dark        */
+  --color-leaf-soft: var(--leaf-soft);   /* green text on surface  */
 
   /* Fonts (provided by next/font in layout.tsx) */
   --font-sans: var(--font-body);
@@ -74,10 +78,27 @@
   --radius-3xl: calc(var(--radius) * 2.2);
 }
 
-/* Always-dark theme: map shadcn semantics onto the Tropella palette. */
+/* Default (dark) theme: map both the Tropella brand vars and shadcn semantics
+   onto the dark palette. A `.light` class on <html> overrides these. */
 :root {
   --radius: 0.75rem;
 
+  /* Tropella brand surfaces / ink ramp (raw values behind the @theme tokens) */
+  --canvas: #14110c;
+  --surface: #1a160f;
+  --surface-2: #211c14;
+  --field: #171309;
+  --ink: #f5efe3;
+  --ink-soft: #cfc6b5;
+  --ink-muted: #bdb3a1;
+  --ink-dim: #a89e8c;
+  --ink-faint: #7a715f;
+  --brand-soft: #f4c277;
+  --leaf-soft: #a7d26e;
+  --elevate: #ffffff; /* hover lightens on dark */
+  --scrollbar-thumb: #3a3225;
+
+  /* shadcn semantics */
   --background: #14110c;
   --foreground: #f5efe3;
   --card: #211c14;
@@ -96,6 +117,80 @@
   --border: rgba(255, 255, 255, 0.09);
   --input: rgba(255, 255, 255, 0.12);
   --ring: #f4a93c;
+}
+
+/* Warm-cream light theme (applied via .light on <html>). Brand accents
+   (orange/green) stay constant; surfaces, ink, borders and hover-mix flip. */
+.light {
+  --canvas: #fbf6ec;
+  --surface: #f3ead9;
+  --surface-2: #fffdf8;
+  --field: #ffffff;
+  --ink: #241d12;
+  --ink-soft: #3c3322;
+  --ink-muted: #554a35;
+  --ink-dim: #736750;
+  --ink-faint: #9c8f76;
+  --brand-soft: #b5610e; /* darker orange — readable text on cream */
+  --leaf-soft: #4f7a1f;  /* darker green  — readable text on cream */
+  --elevate: #000000;    /* hover darkens on light */
+  --scrollbar-thumb: #d8cbb2;
+
+  /* shadcn semantics remapped to the light surfaces */
+  --background: #fbf6ec;
+  --foreground: #241d12;
+  --card: #fffdf8;
+  --card-foreground: #241d12;
+  --popover: #f3ead9;
+  --popover-foreground: #241d12;
+  --primary: #f4a93c;
+  --primary-foreground: #14110c;
+  --secondary: #86c03f;
+  --secondary-foreground: #14110c;
+  --muted: #f3ead9;
+  --muted-foreground: #736750;
+  --accent: #f3ead9;
+  --accent-foreground: #241d12;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(30, 22, 10, 0.1);
+  --input: rgba(30, 22, 10, 0.16);
+  --ring: #f4a93c;
+}
+
+/* Force a subtree to stay dark regardless of the active theme. Sets the dark
+   tokens on the element itself so they inherit down and win over an ancestor
+   `.light` (e.g. the always-dark Wholesale section). The `color` reset makes
+   untinted headings/titles (which inherit `color`) stay cream, not black. */
+.theme-dark {
+  /* Reset inherited text color so untinted headings (which inherit `color`
+     rather than using a text-* utility) stay cream inside this dark island. */
+  color: var(--ink);
+
+  --canvas: #14110c;
+  --surface: #1a160f;
+  --surface-2: #211c14;
+  --field: #171309;
+  --ink: #f5efe3;
+  --ink-soft: #cfc6b5;
+  --ink-muted: #bdb3a1;
+  --ink-dim: #a89e8c;
+  --ink-faint: #7a715f;
+  --brand-soft: #f4c277;
+  --leaf-soft: #a7d26e;
+  --elevate: #ffffff;
+
+  --background: #14110c;
+  --foreground: #f5efe3;
+  --card: #211c14;
+  --card-foreground: #f5efe3;
+  --popover: #1a160f;
+  --popover-foreground: #f5efe3;
+  --muted: #211c14;
+  --muted-foreground: #a89e8c;
+  --accent: #211c14;
+  --accent-foreground: #f5efe3;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.12);
 }
 
 /* ------------------------------------------------------------------ */
@@ -150,7 +245,7 @@
     background: var(--color-canvas);
   }
   ::-webkit-scrollbar-thumb {
-    background: #3a3225;
+    background: var(--scrollbar-thumb);
     border-radius: 6px;
     border: 3px solid var(--color-canvas);
   }

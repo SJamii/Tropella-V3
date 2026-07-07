@@ -53,7 +53,11 @@ export function ProductCard({
     <Link
       href={href}
       className={cn(
-        "group relative block h-full overflow-hidden rounded-[24px] border border-white/[0.07] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-[6px]",
+        // Card content sits over a permanently dark image + legibility gradient,
+        // so pin the ink/soft tokens to cream and set text-ink on the root so the
+        // untinted title (which inherits `color`) stays light in both themes.
+        "text-ink [--brand-soft:#f4c277] [--ink-dim:#a89e8c] [--ink-soft:#cfc6b5] [--ink:#f5efe3] [--leaf-soft:#a7d26e]",
+        "group relative block h-full overflow-hidden rounded-[24px] border border-border transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-[6px]",
         t.hoverBorder,
         featured
           ? "hover:shadow-[0_26px_56px_rgba(0,0,0,0.5)]"

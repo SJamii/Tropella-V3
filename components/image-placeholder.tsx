@@ -22,7 +22,7 @@ export function ImagePlaceholder({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-2 overflow-hidden border border-white/[0.06] bg-linear-to-br from-surface-2 to-surface p-4 text-center",
+        "flex flex-col items-center justify-center gap-2 overflow-hidden border border-border bg-linear-to-br from-surface-2 to-surface p-4 text-center",
         className,
       )}
     >

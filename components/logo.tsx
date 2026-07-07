@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { Icon } from "@/components/icon";
 import { cn } from "@/lib/utils";
 
 /**
- * Tropella wordmark — gradient "spa" mark + name. Used in the header and
- * footer. Links to the top of the page by default.
+ * Tropella wordmark — rendered from /public/logo.png. The source asset has a
+ * solid teal background, so we frame just the white sticker body (the
+ * "Tropella" wordmark) with a background crop and clip the rounded corners with
+ * `overflow-hidden`. The crop constants below map to the body's bounding box in
+ * the 1344×768 source (x 364–926, y 255–473). Replace logo.png with a
+ * transparent-background export to have it blend perfectly with either theme.
  */
 export function Logo({
   href = "#tp-top",
@@ -16,14 +19,13 @@ export function Logo({
   return (
     <Link
       href={href}
-      className={cn("flex items-center gap-[11px] text-ink", className)}
+      aria-label="Tropella — home"
+      className={cn(
+        "block h-9 w-23.25 overflow-hidden rounded-md bg-[url('/logo.png')] bg-no-repeat bg-position-[47%_46%] bg-size-[239%]",
+        className,
+      )}
     >
-      <span className="flex size-[34px] items-center justify-center rounded-[11px] bg-linear-to-br from-brand to-brand-deep">
-        <Icon name="spa" className="text-[21px] text-canvas" />
-      </span>
-      <span className="font-display text-[23px] font-bold tracking-[-0.02em]">
-        Tropella
-      </span>
+      <span className="sr-only">Tropella</span>
     </Link>
   );
 }

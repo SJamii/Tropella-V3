@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 const INITIAL: ContactState = { status: "idle" };
 
 const FIELD =
-  "w-full rounded-[11px] border border-white/12 bg-field px-[15px] py-[13px] text-[15px] text-ink outline-none transition-colors placeholder:text-ink-dim focus-visible:border-brand/60 focus-visible:ring-2 focus-visible:ring-brand/20";
+  "w-full rounded-[11px] border border-input bg-field px-[15px] py-[13px] text-[15px] text-ink outline-none transition-colors placeholder:text-ink-dim focus-visible:border-brand/60 focus-visible:ring-2 focus-visible:ring-brand/20";
 
 const LABEL = "text-[13.5px] font-medium text-ink-muted";
 
@@ -42,7 +42,7 @@ export function ContactForm() {
   return (
     <form
       action={formAction}
-      className="grid gap-[18px] rounded-[22px] border border-white/7 bg-surface-2 p-[34px] sm:grid-cols-2"
+      className="grid gap-[18px] rounded-[22px] border border-border bg-surface-2 p-[34px] sm:grid-cols-2"
     >
       <label className="flex flex-col gap-[7px]">
         <span className={LABEL}>Name *</span>

@@ -107,7 +107,9 @@ export function WaysToEnjoy() {
             )}
             <div
               className={cn(
-                "pointer-events-none absolute inset-0 flex items-end bg-[linear-gradient(to_top,rgba(20,17,12,0.85),transparent_55%)]",
+                // Title sits over a permanently dark image gradient — keep ink
+                // cream in both themes so it stays legible.
+                "pointer-events-none absolute inset-0 flex items-end bg-[linear-gradient(to_top,rgba(20,17,12,0.85),transparent_55%)] [--ink:#f5efe3]",
                 large ? "p-5" : "p-[18px]",
               )}
             >

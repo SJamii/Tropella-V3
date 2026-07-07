@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/icon";
 import { Logo } from "@/components/logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -32,7 +33,7 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,backdrop-filter,border-color] duration-300",
         scrolled
-          ? "border-white/10 bg-canvas/85 backdrop-blur-[14px]"
+          ? "border-border bg-canvas/85 backdrop-blur-[14px]"
           : "border-transparent bg-transparent",
       )}
     >
@@ -55,6 +56,8 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-[14px]">
+          <ThemeToggle />
+
           <button
             type="button"
             aria-label="Cart"
@@ -86,7 +89,7 @@ export function SiteHeader() {
 
       {/* Mobile dropdown menu */}
       {menuOpen && (
-        <div className="border-t border-white/[0.07] bg-surface px-6 pt-2 pb-[22px] lg:hidden">
+        <div className="border-t border-border bg-surface px-6 pt-2 pb-[22px] lg:hidden">
           <div className="flex flex-col">
             {NAV_LINKS.map((link) => (
               <Link

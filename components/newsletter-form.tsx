@@ -39,7 +39,7 @@ export function NewsletterForm() {
           required
           placeholder="you@email.com"
           aria-label="Email address"
-          className="min-w-[220px] flex-1 rounded-full border border-white/[0.18] bg-canvas/60 px-[22px] py-[14px] text-[15px] text-ink outline-none placeholder:text-ink-dim focus-visible:border-brand/60 focus-visible:ring-2 focus-visible:ring-brand/25"
+          className="min-w-[220px] flex-1 rounded-full border border-input bg-canvas/60 px-[22px] py-[14px] text-[15px] text-ink outline-none placeholder:text-ink-dim focus-visible:border-brand/60 focus-visible:ring-2 focus-visible:ring-brand/25"
         />
         <Button
           type="submit"

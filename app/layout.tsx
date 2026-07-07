@@ -67,9 +67,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#14110C",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FBF6EC" },
+    { media: "(prefers-color-scheme: dark)", color: "#14110C" },
+  ],
+  colorScheme: "dark light",
 };
+
+// Applies the persisted theme before first paint to avoid a flash of the wrong
+// theme. Default is dark; only an explicit "light" choice adds the class.
+const THEME_BOOTSTRAP = `try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light")}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -77,8 +84,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable}`}
+      suppressHydrationWarning
+    >
       <head>
+        {/* Set the persisted theme before paint (no flash of dark on light). */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
         {/*
           Material Symbols is a variable icon font that next/font/google does
           not support, so it's loaded via a stylesheet link. The two @next

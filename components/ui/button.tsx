@@ -24,7 +24,7 @@ const buttonVariants = cva(
           "bg-primary font-bold text-primary-foreground hover:-translate-y-0.5 hover:bg-primary hover:shadow-[0_14px_34px_rgba(244,169,60,0.38)]",
         leaf: "bg-secondary font-bold text-secondary-foreground hover:-translate-y-0.5 hover:bg-secondary hover:shadow-[0_14px_32px_rgba(134,192,63,0.32)]",
         brandOutline:
-          "border-white/20 bg-transparent font-semibold text-ink hover:border-white/50 hover:bg-white/5",
+          "border-foreground/20 bg-transparent font-semibold text-ink hover:border-foreground/50 hover:bg-foreground/5",
       },
       size: {
         default:

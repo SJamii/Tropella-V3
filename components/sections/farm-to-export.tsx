@@ -100,7 +100,7 @@ export function FarmToExport() {
   return (
     <section
       id="tp-export"
-      className="relative overflow-hidden border-t border-white/6 bg-[color-mix(in_oklch,var(--color-canvas),var(--color-leaf)_5%)]"
+      className="relative overflow-hidden border-t border-border bg-[color-mix(in_oklch,var(--color-canvas),var(--color-leaf)_5%)]"
     >
       {/* Decorative leaf glow, echoing the source mockup's corner light. */}
       <div
@@ -138,7 +138,7 @@ export function FarmToExport() {
                   }}
                   data-focused={i === focused ? "true" : undefined}
                   className={cn(
-                    "group flex h-full flex-col items-center rounded-2xl border border-white/8 bg-surface-2 p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:bg-[color-mix(in_oklch,var(--color-surface-2),white_5%)] active:-translate-y-1 max-lg:data-[focused=true]:-translate-y-1.5 max-lg:data-[focused=true]:bg-[color-mix(in_oklch,var(--color-surface-2),white_5%)] sm:items-start sm:text-left",
+                    "group flex h-full flex-col items-center rounded-2xl border border-border bg-surface-2 p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:bg-[color-mix(in_oklch,var(--color-surface-2),var(--color-elevate)_6%)] active:-translate-y-1 max-lg:data-[focused=true]:-translate-y-1.5 max-lg:data-[focused=true]:bg-[color-mix(in_oklch,var(--color-surface-2),var(--color-elevate)_6%)] sm:items-start sm:text-left",
                     t.card,
                   )}
                 >

@@ -41,7 +41,7 @@ const AVATAR_TONE = {
 
 export function Testimonials() {
   return (
-    <section className="border-y border-white/6 bg-surface">
+    <section className="border-y border-border bg-surface">
       <div className="mx-auto max-w-7xl px-6 py-22.5 md:px-8">
         <SectionHeading
           tone="leaf"
@@ -54,7 +54,7 @@ export function Testimonials() {
         <div className="grid gap-5 md:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={Math.min(i * 90, 360)} className="h-full">
-              <figure className="flex h-full flex-col rounded-[22px] border border-white/7 bg-surface-2 p-8">
+              <figure className="flex h-full flex-col rounded-[22px] border border-border bg-surface-2 p-8">
                 <div className="mb-[18px] flex gap-[3px]">
                   {Array.from({ length: 5 }).map((_, s) => (
                     <Icon
