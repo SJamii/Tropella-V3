@@ -5,7 +5,7 @@ import { Icon } from "@/components/icon";
 
 // The active theme is a `light` class on <html>, applied before paint by the
 // bootstrap script in layout.tsx. We read it as external state so the server
-// renders the dark default and the client syncs to the real class without a
+// renders the light default and the client syncs to the real class without a
 // setState-in-effect or a hydration mismatch.
 function subscribe(callback: () => void) {
   window.addEventListener("themechange", callback);
@@ -18,7 +18,7 @@ function isLight() {
 
 /** Dark/light theme toggle. Reflects and flips the persisted theme. */
 export function ThemeToggle() {
-  const light = useSyncExternalStore(subscribe, isLight, () => false);
+  const light = useSyncExternalStore(subscribe, isLight, () => true);
 
   const toggle = () => {
     const next = !light;

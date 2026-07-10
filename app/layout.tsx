@@ -71,12 +71,14 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#FBF6EC" },
     { media: "(prefers-color-scheme: dark)", color: "#14110C" },
   ],
-  colorScheme: "dark light",
+  colorScheme: "light dark",
 };
 
 // Applies the persisted theme before first paint to avoid a flash of the wrong
-// theme. Default is dark; only an explicit "light" choice adds the class.
-const THEME_BOOTSTRAP = `try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light")}catch(e){}`;
+// theme. Default is light; the `.light` class is added unless the visitor has
+// explicitly chosen dark. Dark stays the class-less `:root` state so shadcn's
+// dormant `dark:` variants don't activate.
+const THEME_BOOTSTRAP = `try{if(localStorage.getItem("theme")!=="dark")document.documentElement.classList.add("light")}catch(e){}`;
 
 export default function RootLayout({
   children,
