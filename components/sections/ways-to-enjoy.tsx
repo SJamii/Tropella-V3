@@ -96,13 +96,13 @@ export function WaysToEnjoy() {
                 alt={title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.07]"
               />
             ) : (
               <ImagePlaceholder
                 label={placeholder}
                 iconName={iconName}
-                className="absolute inset-0 h-full w-full rounded-none border-0"
+                className="absolute inset-0 h-full w-full rounded-none border-0 transition-transform duration-500 ease-out group-hover:scale-[1.07]"
               />
             )}
             <div
