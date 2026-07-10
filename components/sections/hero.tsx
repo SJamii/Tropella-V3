@@ -42,15 +42,15 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={270}>
-            <div className="flex flex-wrap gap-[14px]">
-              <Button asChild variant="brand" size="pillLg">
+            <div className="flex flex-col flex-wrap gap-[14px] sm:flex-row">
+              <Button asChild variant="brand" size="pillLg" className="w-full sm:w-auto">
                 <Link href="#tp-range">
                   Explore Products
                   <Icon name="arrow_forward" className="text-[19px]" />
                 </Link>
               </Button>
-              <Button asChild variant="brandOutline" size="pillLg">
-                <Link href="#tp-wholesale">Partner With Us</Link>
+              <Button asChild variant="brandOutline" size="pillLg" className="w-full sm:w-auto">
+                <Link href="#tp-contact">Partner With Us</Link>
               </Button>
             </div>
           </Reveal>
