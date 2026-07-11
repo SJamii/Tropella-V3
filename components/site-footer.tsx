@@ -73,16 +73,16 @@ export function SiteFooter() {
           <h5 className="mb-4 font-display text-[15px] font-bold">Contact</h5>
           <div className="flex flex-col gap-[11px] text-[14.5px]">
             <a
-              href="mailto:hello@tropella.com"
+              href="mailto:sjamiiuc@gmail.com"
               className="text-ink-dim transition-colors hover:text-ink"
             >
-              hello@tropella.com
+              sjamiiuc@gmail.com
             </a>
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/8801861237066"
               className="text-ink-dim transition-colors hover:text-ink"
             >
-              +1 234 567 890
+              +880 1861 237066
             </a>
             <span className="text-ink-dim">Mon–Fri, 9–6 (GMT+6)</span>
           </div>

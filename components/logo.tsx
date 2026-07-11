@@ -2,12 +2,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /**
- * Tropella wordmark — rendered from /public/logo.png. The source asset has a
- * solid teal background, so we frame just the white sticker body (the
- * "Tropella" wordmark) with a background crop and clip the rounded corners with
- * `overflow-hidden`. The crop constants below map to the body's bounding box in
- * the 1344×768 source (x 364–926, y 255–473). Replace logo.png with a
- * transparent-background export to have it blend perfectly with either theme.
+ * Tropella wordmark — /public/logo-transparent.png, a transparent-background
+ * export of the "Tropella" wordmark. Generated from logo.jpeg by flood-filling
+ * out the white background and stripping the leaf/berry mark and the black
+ * tagline, so it blends with either theme. Intrinsic size 988×256 (≈247/64);
+ * `bg-contain` fits it to the box height with the aspect ratio held constant.
  */
 export function Logo({
   href = "#tp-top",
@@ -21,7 +20,7 @@ export function Logo({
       href={href}
       aria-label="Tropella — home"
       className={cn(
-        "block h-9 w-23.25 overflow-hidden rounded-md bg-[url('/logo.png')] bg-no-repeat bg-position-[47%_46%] bg-size-[239%]",
+        "block h-9 aspect-247/64 bg-[url('/logo-transparent.png')] bg-contain bg-center bg-no-repeat",
         className,
       )}
     >

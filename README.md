@@ -29,8 +29,54 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Email setup (Resend)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contact and newsletter forms are Server Actions that email **you** (the site
+owner) via [Resend](https://resend.com). The enquirer/subscriber is set as
+`reply-to`, so you can reply straight from your inbox. Nothing is sent to third
+parties.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Without a `RESEND_API_KEY` the forms still "work" but nothing is delivered** —
+`lib/email.ts` logs the payload to the server console (Vercel function logs) and
+returns success. This keeps a fresh clone runnable with zero config.
+
+### Environment variables
+
+| Variable | Required | Default | Notes |
+|---|---|---|---|
+| `RESEND_API_KEY` | Yes, to actually send | — | From the Resend dashboard (`re_…`) |
+| `CONTACT_TO` | No | `sjamiiuc@gmail.com` | Inbox that receives submissions |
+| `CONTACT_FROM` | No | `Tropella <onboarding@resend.dev>` | Verified sender (see below) |
+
+Copy `.env.example` → `.env.local` for local development.
+
+### Get the API key
+
+1. Sign up at [resend.com](https://resend.com) — **use `sjamiiuc@gmail.com` as the
+   account email** (see the sender caveat below). Free tier: 100 emails/day.
+2. **API Keys → Create API Key** (Sending access). Copy the key — it's shown once.
+
+### Deploy on Vercel
+
+1. Vercel → project → **Settings → Environment Variables** → add
+   `RESEND_API_KEY = re_…` (scope: Production, and Preview if desired).
+2. **Redeploy** — env-var changes only take effect on a new deployment.
+3. Submit the live contact form and check your inbox (and spam folder).
+
+The easiest way to deploy is the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for details.
+
+### Sender caveat & going to production
+
+The default sender `onboarding@resend.dev` is Resend's shared test address. It
+**can only deliver to the email that owns the Resend account** — which is why the
+account must be registered with `sjamiiuc@gmail.com` (the `CONTACT_TO` inbox).
+Deliverability is also weak (often lands in spam).
+
+For reliable, branded email:
+
+1. Resend → **Domains → Add Domain** (e.g. `tropella.com`).
+2. Add the **SPF + DKIM DNS records** at your registrar; wait for "Verified".
+3. Set `CONTACT_FROM` to e.g. `Tropella <hello@tropella.com>` in Vercel and redeploy.
+
+This removes the "own email only" limit and lets mail reach any recipient's inbox.
