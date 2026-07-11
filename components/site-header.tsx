@@ -38,7 +38,7 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-[18px] md:px-8">
-        <Logo />
+        <Logo className="h-8 md:h-9" />
 
         <nav
           aria-label="Primary"

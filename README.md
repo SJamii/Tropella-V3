@@ -45,15 +45,15 @@ returns success. This keeps a fresh clone runnable with zero config.
 | Variable | Required | Default | Notes |
 |---|---|---|---|
 | `RESEND_API_KEY` | Yes, to actually send | — | From the Resend dashboard (`re_…`) |
-| `CONTACT_TO` | No | `sjamiiuc@gmail.com` | Inbox that receives submissions |
+| `CONTACT_TO` | No | `hello.tropella@gmail.com` | Inbox that receives submissions |
 | `CONTACT_FROM` | No | `Tropella <onboarding@resend.dev>` | Verified sender (see below) |
 
 Copy `.env.example` → `.env.local` for local development.
 
 ### Get the API key
 
-1. Sign up at [resend.com](https://resend.com) — **use `sjamiiuc@gmail.com` as the
-   account email** (see the sender caveat below). Free tier: 100 emails/day.
+1. Sign up at [resend.com](https://resend.com) — **use `hello.tropella@gmail.com`
+   as the account email** (see the sender caveat below). Free tier: 100 emails/day.
 2. **API Keys → Create API Key** (Sending access). Copy the key — it's shown once.
 
 ### Deploy on Vercel
@@ -70,7 +70,7 @@ See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-appl
 
 The default sender `onboarding@resend.dev` is Resend's shared test address. It
 **can only deliver to the email that owns the Resend account** — which is why the
-account must be registered with `sjamiiuc@gmail.com` (the `CONTACT_TO` inbox).
+account must be registered with `hello.tropella@gmail.com` (the `CONTACT_TO` inbox).
 Deliverability is also weak (often lands in spam).
 
 For reliable, branded email:
