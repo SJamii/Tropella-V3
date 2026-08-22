@@ -20,9 +20,9 @@ const STEPS = [
   },
   {
     number: "03",
-    icon: "sunny",
-    title: "Naturally Dried",
-    body: "Slow-dried at low temperatures to lock in nutrients, color, and flavor.",
+    icon: "mode_heat",
+    title: "Machine Dried",
+    body: "Dehydrated in temperature-controlled machines — gentle, even heat that locks in nutrients, color, and flavor.",
   },
   {
     number: "04",

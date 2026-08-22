@@ -20,7 +20,7 @@ export function Hero() {
           <Reveal>
             <span className="mb-[26px] inline-flex items-center gap-[9px] rounded-full border border-brand/30 bg-brand/10 px-[15px] py-2 text-[13px] font-semibold tracking-[0.04em] text-brand-soft">
               <span className="size-[7px] rounded-full bg-brand" />
-              FROM THE TROPICS, NATURALLY
+              CHOOSE THE ONE THAT LASTS
             </span>
           </Reveal>
 

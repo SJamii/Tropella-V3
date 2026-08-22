@@ -31,13 +31,13 @@ export function Wholesale() {
       className="theme-dark border-t border-border bg-surface"
     >
       <div className="mx-auto max-w-7xl px-6 py-22.5 md:px-8">
-        {/* Intro: facility image (left) + copy (right) */}
-        <div className="mb-[60px] grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
-          <Reveal className="order-2 h-full lg:order-1">
-            <div className="relative h-full min-h-[440px] w-full overflow-hidden rounded-[26px]">
+        {/* Intro: package shot (left) + copy (right) */}
+        <div className="mb-[60px] grid items-stretch gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+          <Reveal className="order-2 lg:order-1 lg:self-center">
+            <div className="relative aspect-3/2 w-full overflow-hidden rounded-[26px] border border-border">
               <Image
-                src="/global_supply_new.png"
-                alt="Tropella industrial-scale dehydration facility"
+                src="/Final_Package_Design.png"
+                alt="Tropella dried fruits and superfood powders retail pouch — front and back of the final package design"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

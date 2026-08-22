@@ -9,7 +9,7 @@ export function Process() {
           tone="leaf"
           align="center"
           eyebrow="FROM FARM TO CRUNCH & POWDER"
-          title="Four steps. Pure sunshine."
+          title="Four steps. Precision dried."
           className="mb-14"
         />
         <ProcessSteps />
