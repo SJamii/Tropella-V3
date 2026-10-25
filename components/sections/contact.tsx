@@ -17,8 +17,8 @@ const CHANNELS: Channel[] = [
     icon: "mail",
     tone: "brand",
     label: "Email",
-    value: "hello.tropella@gmail.com",
-    href: "mailto:hello.tropella@gmail.com",
+    value: "hello@tropella.net",
+    href: "mailto:hello@tropella.net",
   },
   {
     icon: "chat",

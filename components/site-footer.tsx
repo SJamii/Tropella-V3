@@ -73,10 +73,10 @@ export function SiteFooter() {
           <h5 className="mb-4 font-display text-[15px] font-bold">Contact</h5>
           <div className="flex flex-col gap-[11px] text-[14.5px]">
             <a
-              href="mailto:hello.tropella@gmail.com"
+              href="mailto:hello@tropella.net"
               className="text-ink-dim transition-colors hover:text-ink"
             >
-              hello.tropella@gmail.com
+              hello@tropella.net
             </a>
             <a
               href="https://wa.me/8801839694235"
