@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -8,15 +10,17 @@ type Testimonial = {
   quote: string;
   name: string;
   role: string;
+  /** Reviewer photo in /public; falls back to a person icon. */
+  image?: string;
 };
 
 const TESTIMONIALS: Testimonial[] = [
   {
     tone: "brand",
-    quote:
-      "The jackfruit powder from Tropella has revolutionized our plant-based dessert line. The flavor intensity is unmatched by any other supplier.",
-    name: "Elena R.",
-    role: "Pastry Chef, London",
+    quote: "The product is absolutely amazing. Something new tried after ages 💗",
+    name: "Arefin Chisty",
+    role: "China",
+    image: "/reviewer-arefin-chisty.jpg",
   },
   {
     tone: "leaf",
@@ -69,14 +73,24 @@ export function Testimonials() {
                   {t.quote}
                 </blockquote>
                 <figcaption className="mt-auto flex items-center gap-[13px]">
-                  <span
-                    className={cn(
-                      "flex size-11 items-center justify-center rounded-full",
-                      AVATAR_TONE[t.tone],
-                    )}
-                  >
-                    <Icon name="person" className="text-[24px]" />
-                  </span>
+                  {t.image ? (
+                    <Image
+                      src={t.image}
+                      alt=""
+                      width={44}
+                      height={44}
+                      className="size-11 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span
+                      className={cn(
+                        "flex size-11 items-center justify-center rounded-full",
+                        AVATAR_TONE[t.tone],
+                      )}
+                    >
+                      <Icon name="person" className="text-[24px]" />
+                    </span>
+                  )}
                   <div>
                     <div className="text-[15px] font-bold text-ink">
                       {t.name}
