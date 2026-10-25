@@ -36,8 +36,19 @@ const PRODUCTS: RangeItem[] = [
     title: "Dried Lime Slices",
     description: "Zesty, aromatic citrus slices",
     tags: ["Fruit", "Slices"],
-    image: "/lime-slices.jpeg",
+    image: "/lime_slices.png",
     placeholder: "Dried lime slices",
+    span: "lg:col-span-2",
+  },
+  {
+    tone: "brand",
+    href: "#tp-contact",
+    badge: "FRUIT",
+    title: "Sweetened Dried Mango",
+    description: "Soft, chewy, lightly sweetened slices",
+    tags: ["Fruit", "Slices", "Sweetened"],
+    image: "/dried_mango_flow.jpeg",
+    placeholder: "Sweetened dried mango slices",
     span: "lg:col-span-2",
   },
   {
@@ -47,7 +58,7 @@ const PRODUCTS: RangeItem[] = [
     title: "Moringa Powder",
     description: "Nutrient-dense superfood green",
     tags: ["Vegetable", "Powder"],
-    image: "/moringa-powder.jpeg",
+    image: "/moringa_powder.png",
     placeholder: "Moringa powder",
     span: "lg:col-span-2",
   },
@@ -58,7 +69,7 @@ const PRODUCTS: RangeItem[] = [
     title: "Tomato Powder",
     description: "Rich umami depth for cooking",
     tags: ["Vegetable", "Powder"],
-    image: "/tomato-powder.png",
+    image: "/tomato_powder.png",
     placeholder: "Tomato powder",
     span: "lg:col-span-2",
   },
@@ -71,6 +82,28 @@ const PRODUCTS: RangeItem[] = [
     tags: ["Vegetable", "Powder"],
     image: "/garlic-powder.jpeg",
     placeholder: "Garlic powder",
+    span: "lg:col-span-2",
+  },
+  {
+    tone: "leaf",
+    href: "#tp-contact",
+    badge: "VEGETABLE",
+    title: "Ginger Powder",
+    description: "Warm, zesty spice for drinks & cooking",
+    tags: ["Vegetable", "Powder"],
+    image: "/ginger_powder.png",
+    placeholder: "Ginger powder",
+    span: "lg:col-span-2",
+  },
+  {
+    tone: "leaf",
+    href: "#tp-contact",
+    badge: "VEGETABLE",
+    title: "Pumpkin Powder",
+    description: "Earthy-sweet golden color & flavor",
+    tags: ["Vegetable", "Powder"],
+    image: "/pumpkin_powder.png",
+    placeholder: "Pumpkin powder",
     span: "lg:col-span-2",
   },
 ];
@@ -88,7 +121,7 @@ export function Range() {
           </h2>
         </div>
         <p className="max-w-[330px] text-[16px] leading-[1.55] text-ink-dim">
-          Six core categories, each available retail-ready or in bulk for
+          Nine core products, each available retail-ready or in bulk for
           manufacturing.
         </p>
       </Reveal>

@@ -26,12 +26,14 @@ const TONE = {
     badgeText: "text-brand-soft",
     arrow: "border-brand/40 bg-brand/[0.16]",
     arrowIcon: "text-brand",
+    tag: "border-brand/35 bg-brand/[0.18] text-brand-soft",
   },
   leaf: {
     hoverBorder: "hover:border-leaf/45",
     badgeText: "text-leaf-soft",
     arrow: "border-leaf/40 bg-leaf/[0.16]",
     arrowIcon: "text-leaf",
+    tag: "border-leaf/35 bg-leaf/[0.18] text-leaf-soft",
   },
 } as const;
 
@@ -149,10 +151,11 @@ export function ProductCard({
               <span
                 key={tag}
                 className={cn(
-                  "rounded-full border bg-white/10 font-semibold",
+                  "rounded-full border font-semibold backdrop-blur-[6px]",
+                  t.tag,
                   featured
-                    ? "border-white/[0.18] px-3 py-[5px] text-[12px] text-ink"
-                    : "border-white/[0.16] px-[9px] py-[3px] text-[10.5px] text-ink-soft",
+                    ? "px-3 py-[5px] text-[12px]"
+                    : "px-[9px] py-[3px] text-[10.5px]",
                 )}
               >
                 {tag}
