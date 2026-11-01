@@ -57,6 +57,10 @@
   --color-leaf: #86c03f;       /* green                     */
   --color-leaf-soft: var(--leaf-soft);   /* green text on surface  */
 
+  /* Third-party brand colors (social icons only) */
+  --color-facebook: #1877f2;
+  --color-whatsapp: #25d366;
+
   /* Fonts (provided by next/font in layout.tsx) */
   --font-sans: var(--font-body);
   --font-body: var(--font-body);
@@ -97,6 +101,13 @@
   --leaf-soft: #a7d26e;
   --elevate: #ffffff; /* hover lightens on dark */
   --scrollbar-thumb: #3a3225;
+
+  /* Instagram logo gradient stops (used by components/social-icons.tsx) */
+  --instagram-1: #feda75;
+  --instagram-2: #fa7e1e;
+  --instagram-3: #d62976;
+  --instagram-4: #962fbf;
+  --instagram-5: #4f5bd5;
 
   /* shadcn semantics */
   --background: #14110c;

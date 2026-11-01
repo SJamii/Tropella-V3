@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { Logo } from "@/components/logo";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  WhatsAppIcon,
+} from "@/components/social-icons";
 
 const FOOTER_NAV = {
   Navigation: [
@@ -18,10 +23,22 @@ const FOOTER_NAV = {
 } as const;
 
 const SOCIALS = [
-  { name: "photo_camera", label: "Instagram" },
-  { name: "group", label: "Facebook" },
-  { name: "chat", label: "WhatsApp" },
-] as const;
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/tropellaofficial",
+    icon: <InstagramIcon />,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/tropella",
+    icon: <FacebookIcon />,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/8801839694235",
+    icon: <WhatsAppIcon />,
+  },
+];
 
 export function SiteFooter() {
   return (
@@ -36,14 +53,16 @@ export function SiteFooter() {
           </p>
           <div className="flex gap-[11px]">
             {SOCIALS.map((social) => (
-              <button
-                key={social.name}
-                type="button"
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex size-[38px] items-center justify-center rounded-[11px] border border-border bg-surface-2 text-ink-soft transition-colors hover:text-ink"
+                className="flex size-11 items-center justify-center rounded-[11px] border border-border bg-surface-2 text-ink-soft transition-colors hover:text-ink"
               >
-                <Icon name={social.name} className="text-[19px]" />
-              </button>
+                {social.icon}
+              </a>
             ))}
           </div>
         </div>
