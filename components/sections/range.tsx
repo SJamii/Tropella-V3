@@ -25,7 +25,7 @@ const PRODUCTS: RangeItem[] = [
     title: "Dried Pineapple Slices",
     description: "Tangy-sweet golden rings",
     tags: ["Fruit", "Slices"],
-    image: "/pineapple-slices.jpeg",
+    image: "/Dried_pineapple_slices_original.png",
     placeholder: "Dried pineapple slices",
     span: "lg:col-span-2",
   },
