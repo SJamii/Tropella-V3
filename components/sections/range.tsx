@@ -53,9 +53,9 @@ const PRODUCTS: RangeItem[] = [
   },
   {
     tone: "brand",
-    href: "/products/sweetened-pineapple-slices",
+    href: "/products/sweetened-dried-pineapple-slices",
     badge: "FRUIT",
-    title: "Sweetened Pineapple Slices",
+    title: "Sweetened Dried Pineapple Slices",
     description: "Sugar-kissed golden rings, soft & chewy",
     tags: ["Fruit", "Slices", "Sweetened"],
     image: "/pineapple_sugar.jpeg",

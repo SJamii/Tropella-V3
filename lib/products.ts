@@ -125,10 +125,10 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tip: "Dice and fold into pancake or waffle batter.",
   },
   {
-    slug: "sweetened-pineapple-slices",
+    slug: "sweetened-dried-pineapple-slices",
     tone: "brand",
     badge: "FRUIT · SWEETENED",
-    title: "Sweetened Pineapple Slices",
+    title: "Sweetened Dried Pineapple Slices",
     tagline: "Sugar-kissed golden rings, soft & chewy.",
     description:
       "Pineapple rings with a light sugar coating, dried until soft and chewy. A sweet tropical treat to enjoy on its own or on top of your favourite desserts.",
