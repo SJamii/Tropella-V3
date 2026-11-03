@@ -72,6 +72,14 @@
   --animate-herofloat: tp-herofloat 8s ease-in-out infinite;
   --animate-marquee: tp-marquee 32s linear infinite;
   --animate-spin-slow: tp-spin 22s linear infinite;
+  --animate-spin-rays: tp-spin 60s linear infinite;
+  --animate-word-pop: tp-word-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-bob: tp-bob 5s ease-in-out infinite;
+  --animate-sway: tp-sway 6s ease-in-out infinite;
+  --animate-morph: tp-morph 16s ease-in-out infinite alternate;
+  --animate-morph2: tp-morph2 18s ease-in-out infinite alternate;
+  --animate-pop-in: tp-pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-pop-out: tp-pop-out 0.3s ease-in forwards;
 
   /* radii mapped from shadcn base */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -228,6 +236,41 @@
   to { transform: rotate(360deg); }
 }
 
+/* Hero: h1 words pop up one by one (slide up, tilt, overshoot). */
+@keyframes tp-word-pop {
+  from { opacity: 0; transform: translateY(40px) rotate(6deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+/* Hero floaters: gentle idle bob. Rest state at 0%/100%. */
+@keyframes tp-bob {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-14px) rotate(8deg); }
+}
+/* Hero pouch: sway ±3° with a small lift. */
+@keyframes tp-sway {
+  0%, 100% { transform: rotate(0) translateY(0); }
+  25% { transform: rotate(3deg) translateY(-4px); }
+  75% { transform: rotate(-3deg) translateY(-4px); }
+}
+/* Hero background blobs: morph + drift. */
+@keyframes tp-morph {
+  from { border-radius: 42% 58% 63% 37% / 44% 41% 59% 56%; transform: translate(0, 0) rotate(0); }
+  to { border-radius: 63% 37% 39% 61% / 58% 63% 37% 42%; transform: translate(-40px, 30px) rotate(25deg); }
+}
+@keyframes tp-morph2 {
+  from { border-radius: 58% 42% 35% 65% / 52% 61% 39% 48%; transform: translate(0, 0) rotate(0); }
+  to { border-radius: 36% 64% 61% 39% / 40% 45% 55% 60%; transform: translate(50px, -24px) rotate(-20deg); }
+}
+/* Hero pouch product window: shrink/spin out, pop back in with a bounce. */
+@keyframes tp-pop-in {
+  from { opacity: 0; transform: scale(0.2) rotate(-90deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes tp-pop-out {
+  from { opacity: 1; transform: scale(1) rotate(0); }
+  to { opacity: 0; transform: scale(0.2) rotate(120deg); }
+}
+
 /* ------------------------------------------------------------------ */
 /*  Base layer                                                         */
 /* ------------------------------------------------------------------ */
@@ -272,6 +315,12 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Subtle paper-grain texture (grayscale fractal noise). Pair with a low
+   opacity utility, e.g. `paper-grain opacity-[0.07]`. */
+@utility paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Material Symbols icon font base (loaded via <link> in layout.tsx). */

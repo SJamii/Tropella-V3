@@ -1,20 +1,39 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
+import { HeroArt } from "@/components/hero-art";
+import { HeroFloaters } from "@/components/hero-floaters";
+import { cn } from "@/lib/utils";
+
+const GRADIENT_TEXT =
+  "bg-[linear-gradient(115deg,var(--color-brand)_20%,var(--color-brand-deep)_60%,var(--color-leaf))] bg-clip-text text-transparent";
+
+// h1 words, popped in one by one on load (70ms stagger).
+const HEADLINE: { word: string; gradient?: boolean }[] = [
+  { word: "From" },
+  { word: "Tropics" },
+  { word: "to" },
+  { word: "your" },
+  { word: "Table", gradient: true },
+  { word: "&", gradient: true },
+  { word: "Factory", gradient: true },
+];
 
 export function Hero() {
   return (
     <header
       id="tp-top"
-      className="relative overflow-hidden px-6 pt-32 pb-[70px] md:px-8 md:pt-[150px]"
+      className="relative isolate overflow-hidden px-6 pt-32 pb-[70px] md:px-8 md:pt-[150px]"
     >
-      {/* Decorative floating blobs */}
-      <div className="pointer-events-none absolute -top-20 -right-[60px] size-[520px] rounded-full bg-[radial-gradient(circle,rgba(244,169,60,0.22),transparent_65%)] blur-[20px] animate-float" />
-      <div className="pointer-events-none absolute -bottom-[120px] -left-20 size-[480px] rounded-full bg-[radial-gradient(circle,rgba(134,192,63,0.16),transparent_65%)] blur-[20px] animate-float2" />
+      {/* Morphing background blobs + paper grain */}
+      <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-20 -z-10 size-[420px] animate-morph bg-brand/14 blur-[72px] md:size-[560px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-28 -left-24 -z-10 size-[380px] animate-morph2 bg-leaf/12 blur-[72px] md:size-[500px]" />
+      <div aria-hidden="true" className="paper-grain pointer-events-none absolute inset-0 -z-10 opacity-[0.07]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+      <HeroFloaters />
+
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
         {/* Copy */}
         <div>
           <Reveal>
@@ -24,14 +43,19 @@ export function Hero() {
             </span>
           </Reveal>
 
-          <Reveal delay={90}>
-            <h1 className="mb-6 font-display text-[clamp(42px,5.6vw,82px)] leading-[0.98] font-extrabold tracking-[-0.03em]">
-              From Tropics to your{" "}
-              <span className="bg-[linear-gradient(115deg,var(--color-brand)_20%,var(--color-brand-deep)_60%,var(--color-leaf))] bg-clip-text text-transparent">
-                Table &amp; Factory
+          <h1 className="mb-6 font-display text-[clamp(42px,5.6vw,82px)] leading-[0.98] font-extrabold tracking-[-0.03em]">
+            {HEADLINE.map(({ word, gradient }, i) => (
+              <span key={word}>
+                <span
+                  className={cn("inline-block animate-word-pop", gradient && GRADIENT_TEXT)}
+                  style={{ animationDelay: `${i * 70}ms` }}
+                >
+                  {word}
+                </span>
+                {i < HEADLINE.length - 1 && " "}
               </span>
-            </h1>
-          </Reveal>
+            ))}
+          </h1>
 
           <Reveal delay={180}>
             <p className="mb-[34px] max-w-[520px] text-[19px] leading-[1.55] text-ink-muted">
@@ -56,29 +80,9 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Product visual */}
-        <Reveal delay={120} className="relative">
-          <div className="relative animate-herofloat">
-            <div className="relative h-105 w-full overflow-hidden rounded-[28px] md:h-130">
-              <Image
-                src="/hero-product.jpeg"
-                alt="A bowl of premium tropical dried fruit — mango, pineapple, banana, and jackfruit — with fresh moringa leaves on dark slate."
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 560px"
-                className="object-cover"
-              />
-            </div>
-
-            {/* Spinning "100% natural" seal */}
-            <div className="absolute -top-[14px] -right-[14px] flex size-[88px] items-center justify-center rounded-full bg-linear-to-br from-brand to-brand-deep text-center animate-spin-slow">
-              <span className="font-display text-[12px] leading-[1.1] font-bold text-canvas">
-                100%
-                <br />
-                NATURAL
-              </span>
-            </div>
-          </div>
+        {/* Product pouch */}
+        <Reveal delay={120}>
+          <HeroArt />
         </Reveal>
       </div>
     </header>
