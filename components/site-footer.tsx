@@ -9,10 +9,10 @@ import {
 
 const FOOTER_NAV = {
   Navigation: [
-    { label: "Store", href: "#tp-range" },
-    { label: "Wholesale", href: "#tp-wholesale" },
-    { label: "Process", href: "#tp-process" },
-    { label: "About", href: "#tp-about" },
+    { label: "Store", href: "/#tp-range" },
+    { label: "Wholesale", href: "/#tp-wholesale" },
+    { label: "Process", href: "/#tp-process" },
+    { label: "About", href: "/#tp-about" },
   ],
   Policies: [
     { label: "Privacy Policy", href: "#" },

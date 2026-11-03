@@ -8,19 +8,19 @@ const PRODUCTS: RangeItem[] = [
   {
     featured: true,
     tone: "brand",
-    href: "#tp-contact",
+    href: "/products/dried-mango-slices",
     badge: "MOST LOVED · FRUIT",
     title: "Dried Mango Slices",
     description:
-      "Naturally sweet, sun-ripened mango — slow-dried in slices with zero added sugar.",
-    tags: ["Fruit", "Slices", "No Added Sugar"],
+      "Naturally sweet, sun-ripened mango — slow-dried in tender slices.",
+    tags: ["Fruit", "Slices"],
     image: "/mango-slices.jpg",
     placeholder: "Dried mango slices",
     span: "row-span-2 sm:col-span-2 lg:col-span-4",
   },
   {
     tone: "brand",
-    href: "#tp-contact",
+    href: "/products/dried-pineapple-slices",
     badge: "FRUIT",
     title: "Dried Pineapple Slices",
     description: "Tangy-sweet golden rings",
@@ -31,7 +31,7 @@ const PRODUCTS: RangeItem[] = [
   },
   {
     tone: "brand",
-    href: "#tp-contact",
+    href: "/products/dried-lime-slices",
     badge: "FRUIT",
     title: "Dried Lime Slices",
     description: "Zesty, aromatic citrus slices",
@@ -42,18 +42,29 @@ const PRODUCTS: RangeItem[] = [
   },
   {
     tone: "brand",
-    href: "#tp-contact",
+    href: "/products/sweetened-dried-mango",
     badge: "FRUIT",
     title: "Sweetened Dried Mango",
     description: "Soft, chewy, lightly sweetened slices",
     tags: ["Fruit", "Slices", "Sweetened"],
     image: "/dried_mango_flow.jpeg",
     placeholder: "Sweetened dried mango slices",
-    span: "lg:col-span-2",
+    span: "lg:col-span-3",
+  },
+  {
+    tone: "brand",
+    href: "/products/sweetened-pineapple-slices",
+    badge: "FRUIT",
+    title: "Sweetened Pineapple Slices",
+    description: "Sugar-kissed golden rings, soft & chewy",
+    tags: ["Fruit", "Slices", "Sweetened"],
+    image: "/pineapple_sugar.jpeg",
+    placeholder: "Sweetened dried pineapple slices",
+    span: "lg:col-span-3",
   },
   {
     tone: "leaf",
-    href: "#tp-contact",
+    href: "/products/moringa-powder",
     badge: "VEGETABLE",
     title: "Moringa Powder",
     description: "Nutrient-dense superfood green",
@@ -64,7 +75,7 @@ const PRODUCTS: RangeItem[] = [
   },
   {
     tone: "leaf",
-    href: "#tp-contact",
+    href: "/products/tomato-powder",
     badge: "VEGETABLE",
     title: "Tomato Powder",
     description: "Rich umami depth for cooking",
@@ -75,7 +86,7 @@ const PRODUCTS: RangeItem[] = [
   },
   {
     tone: "leaf",
-    href: "#tp-contact",
+    href: "/products/garlic-powder",
     badge: "VEGETABLE",
     title: "Garlic Powder",
     description: "Pungent, savory flavor base",
@@ -86,25 +97,25 @@ const PRODUCTS: RangeItem[] = [
   },
   {
     tone: "leaf",
-    href: "#tp-contact",
+    href: "/products/ginger-powder",
     badge: "VEGETABLE",
     title: "Ginger Powder",
     description: "Warm, zesty spice for drinks & cooking",
     tags: ["Vegetable", "Powder"],
     image: "/ginger_powder.png",
     placeholder: "Ginger powder",
-    span: "lg:col-span-2",
+    span: "lg:col-span-3",
   },
   {
     tone: "leaf",
-    href: "#tp-contact",
+    href: "/products/pumpkin-powder",
     badge: "VEGETABLE",
     title: "Pumpkin Powder",
     description: "Earthy-sweet golden color & flavor",
     tags: ["Vegetable", "Powder"],
     image: "/pumpkin_powder.png",
     placeholder: "Pumpkin powder",
-    span: "lg:col-span-2",
+    span: "sm:col-span-2 lg:col-span-3",
   },
 ];
 
@@ -121,7 +132,7 @@ export function Range() {
           </h2>
         </div>
         <p className="max-w-[330px] text-[16px] leading-[1.55] text-ink-dim">
-          Nine core products, each available retail-ready or in bulk for
+          Ten core products, each available retail-ready or in bulk for
           manufacturing.
         </p>
       </Reveal>

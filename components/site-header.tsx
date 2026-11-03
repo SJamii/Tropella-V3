@@ -9,11 +9,11 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "Store", href: "#tp-range" },
-  { label: "Wholesale", href: "#tp-wholesale" },
-  { label: "Process", href: "#tp-process" },
-  { label: "About", href: "#tp-about" },
-  { label: "Contact", href: "#tp-contact" },
+  { label: "Store", href: "/#tp-range" },
+  { label: "Wholesale", href: "/#tp-wholesale" },
+  { label: "Process", href: "/#tp-process" },
+  { label: "About", href: "/#tp-about" },
+  { label: "Contact", href: "/#tp-contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -72,7 +72,7 @@ export function SiteHeader() {
             size="pill"
             className="hidden sm:inline-flex"
           >
-            <Link href="#tp-contact">Request Samples</Link>
+            <Link href="/#tp-contact">Request Samples</Link>
           </Button>
 
           <button

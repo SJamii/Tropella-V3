@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 
 const ITEMS = [
   { icon: "eco", label: "100% Natural", tone: "leaf" },
-  { icon: "do_not_disturb_on", label: "No Added Sugar", tone: "brand" },
   { icon: "handshake", label: "Sustainable & Ethical", tone: "leaf" },
   { icon: "public", label: "Export Ready", tone: "brand" },
   { icon: "verified", label: "Certified Quality", tone: "leaf" },

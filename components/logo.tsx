@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
  * `bg-contain` fits it to the box height with the aspect ratio held constant.
  */
 export function Logo({
-  href = "#tp-top",
+  href = "/#tp-top",
   className,
 }: {
   href?: string;
