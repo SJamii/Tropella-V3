@@ -80,6 +80,7 @@
   --animate-morph2: tp-morph2 18s ease-in-out infinite alternate;
   --animate-pop-in: tp-pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   --animate-pop-out: tp-pop-out 0.3s ease-in forwards;
+  --animate-nudge: tp-nudge 1.4s ease-in-out infinite;
 
   /* radii mapped from shadcn base */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -234,6 +235,12 @@
 @keyframes tp-spin {
   from { transform: rotate(0); }
   to { transform: rotate(360deg); }
+}
+
+/* Process story: "keep scrolling ↓" arrow nudge. */
+@keyframes tp-nudge {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(4px); }
 }
 
 /* Hero: h1 words pop up one by one (slide up, tilt, overshoot). */
