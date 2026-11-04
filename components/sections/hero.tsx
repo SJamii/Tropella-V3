@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
 import { HeroArt } from "@/components/hero-art";
-import { HeroFloaters } from "@/components/hero-floaters";
 import { cn } from "@/lib/utils";
 
 const GRADIENT_TEXT =
@@ -30,8 +29,6 @@ export function Hero() {
       <div aria-hidden="true" className="pointer-events-none absolute -top-24 -right-20 -z-10 size-[420px] animate-morph bg-brand/14 blur-[72px] md:size-[560px]" />
       <div aria-hidden="true" className="pointer-events-none absolute -bottom-28 -left-24 -z-10 size-[380px] animate-morph2 bg-leaf/12 blur-[72px] md:size-[500px]" />
       <div aria-hidden="true" className="paper-grain pointer-events-none absolute inset-0 -z-10 opacity-[0.07]" />
-
-      <HeroFloaters />
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
         {/* Copy */}
