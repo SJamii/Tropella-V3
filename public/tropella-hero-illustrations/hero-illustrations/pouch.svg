@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320">
+  <!-- Fills use CSS variables so the pouch follows the site's own theme when inlined as a React component. Fallbacks apply when used as <img>. -->
+  <path d="M28 34 L212 34 L226 300 Q120 322 14 300 Z" fill="var(--pouch-body, #2E7217)"/>
+  <path d="M28 34 L212 34 L213 56 L27 56Z" fill="var(--pouch-top, #1E4F10)"/>
+  <path d="M40 45h160" stroke="var(--pouch-stitch, #FFF2C9)" stroke-width="2" stroke-dasharray="6 6" opacity=".5"/>
+  <rect id="logo-slot" x="58" y="62" width="124" height="48" rx="24" fill="var(--pouch-window, #FFF8E6)"/>
+  <rect id="product-window" x="58" y="112" width="124" height="102" rx="51" fill="var(--pouch-window, #FFF8E6)"/>
+  <rect id="label-band" x="30" y="226" width="180" height="34" rx="17" fill="var(--pouch-band, #F1B005)"/>
+</svg>

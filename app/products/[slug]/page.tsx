@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Eyebrow } from "@/components/eyebrow";
+import { FloatingProduce } from "@/components/floating-produce";
 import { GoodToKnow } from "@/components/good-to-know";
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
@@ -57,102 +58,103 @@ export default async function ProductPage(
   const t = TONE[product.tone];
 
   return (
-    <main
-      id="tp-main"
-      className="mx-auto max-w-3xl px-6 pt-28 pb-16 md:px-8 md:pt-36 md:pb-[90px]"
-    >
-      <Link
-        href="/#tp-range"
-        className="mb-6 inline-flex min-h-11 items-center gap-2 text-[15px] font-medium text-ink-soft transition-colors hover:text-ink"
-      >
-        <Icon name="arrow_back" className="text-[20px]" />
-        Back to range
-      </Link>
+    <main id="tp-main" className="relative isolate overflow-hidden">
+      <FloatingProduce />
 
-      <Reveal>
-        <div
-          className={cn(
-            "relative aspect-4/3 overflow-hidden rounded-3xl border-2 bg-surface-2",
-            t.frame,
-          )}
+      <div className="relative z-10 mx-auto max-w-3xl px-6 pt-28 pb-16 md:px-8 md:pt-36 md:pb-[90px]">
+        <Link
+          href="/#tp-range"
+          className="mb-6 inline-flex min-h-11 items-center gap-2 text-[15px] font-medium text-ink-soft transition-colors hover:text-ink"
         >
-          <Image
-            src={product.image}
-            alt={product.imageAlt}
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="object-cover"
-          />
-        </div>
-      </Reveal>
+          <Icon name="arrow_back" className="text-[20px]" />
+          Back to range
+        </Link>
 
-      <Reveal className="mt-8">
-        <Eyebrow tone={product.tone} className="mb-3">
-          {product.badge}
-        </Eyebrow>
-        <h1 className="font-display text-[clamp(34px,5vw,52px)] leading-[1.02] font-extrabold tracking-[-0.03em] text-ink">
-          {product.title}
-        </h1>
-        <p className="mt-3 text-[17px] leading-[1.5] text-ink-soft">
-          {product.tagline}
-        </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {product.tags.map((tag) => (
-            <span
-              key={tag}
-              className={cn(
-                "rounded-full border px-3 py-[5px] text-[12px] font-semibold",
-                t.tag,
-              )}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <p className="mt-6 text-[16px] leading-[1.65] text-ink-muted">
-          {product.description}
-        </p>
-      </Reveal>
+        <Reveal>
+          <div
+            className={cn(
+              "relative aspect-4/3 overflow-hidden rounded-3xl border-2 bg-surface-2",
+              t.frame,
+            )}
+          >
+            <Image
+              src={product.image}
+              alt={product.imageAlt}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
 
-      <Reveal className="mt-10">
-        <GoodToKnow
-          tone={product.tone}
-          usage={product.usage}
-          benefits={product.benefits}
-          tip={product.tip}
-        />
-      </Reveal>
-
-      <Reveal className="mt-10 grid gap-4 md:grid-cols-2">
-        <div className="flex flex-col rounded-3xl border border-border bg-surface p-6">
-          <Eyebrow className="mb-3">FOR YOUR TABLE</Eyebrow>
-          <p className="mb-6 flex-1 text-[15px] leading-[1.55] text-ink-muted">
-            Retail-ready packs for everyday snacking and home cooking.
-          </p>
-          <Button asChild variant="brand" size="pill" className="min-h-11 self-start">
-            <Link href="/#tp-contact">
-              Enquire to order
-              <Icon name="arrow_forward" className="text-[18px]" />
-            </Link>
-          </Button>
-        </div>
-        <div className="flex flex-col rounded-3xl border border-border bg-surface p-6">
-          <Eyebrow tone="leaf" className="mb-3">
-            FOR YOUR FACTORY
+        <Reveal className="mt-8">
+          <Eyebrow tone={product.tone} className="mb-3">
+            {product.badge}
           </Eyebrow>
-          <p className="mb-6 flex-1 text-[15px] leading-[1.55] text-ink-muted">
-            Bulk or private-label supply for manufacturers, retailers and
-            exporters.
+          <h1 className="font-display text-[clamp(34px,5vw,52px)] leading-[1.02] font-extrabold tracking-[-0.03em] text-ink">
+            {product.title}
+          </h1>
+          <p className="mt-3 text-[17px] leading-[1.5] text-ink-soft">
+            {product.tagline}
           </p>
-          <Button asChild variant="leaf" size="pill" className="min-h-11 self-start">
-            <Link href="/#tp-contact">
-              Request a quote
-              <Icon name="arrow_forward" className="text-[18px]" />
-            </Link>
-          </Button>
-        </div>
-      </Reveal>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {product.tags.map((tag) => (
+              <span
+                key={tag}
+                className={cn(
+                  "rounded-full border px-3 py-[5px] text-[12px] font-semibold",
+                  t.tag,
+                )}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <p className="mt-6 text-[16px] leading-[1.65] text-ink-muted">
+            {product.description}
+          </p>
+        </Reveal>
+
+        <Reveal className="mt-10">
+          <GoodToKnow
+            tone={product.tone}
+            usage={product.usage}
+            benefits={product.benefits}
+            tip={product.tip}
+          />
+        </Reveal>
+
+        <Reveal className="mt-10 grid gap-4 md:grid-cols-2">
+          <div className="flex flex-col rounded-3xl border border-border bg-surface p-6">
+            <Eyebrow className="mb-3">FOR YOUR TABLE</Eyebrow>
+            <p className="mb-6 flex-1 text-[15px] leading-[1.55] text-ink-muted">
+              Retail-ready packs for everyday snacking and home cooking.
+            </p>
+            <Button asChild variant="brand" size="pill" className="min-h-11 self-start">
+              <Link href="/#tp-contact">
+                Enquire to order
+                <Icon name="arrow_forward" className="text-[18px]" />
+              </Link>
+            </Button>
+          </div>
+          <div className="flex flex-col rounded-3xl border border-border bg-surface p-6">
+            <Eyebrow tone="leaf" className="mb-3">
+              FOR YOUR FACTORY
+            </Eyebrow>
+            <p className="mb-6 flex-1 text-[15px] leading-[1.55] text-ink-muted">
+              Bulk or private-label supply for manufacturers, retailers and
+              exporters.
+            </p>
+            <Button asChild variant="leaf" size="pill" className="min-h-11 self-start">
+              <Link href="/#tp-contact">
+                Request a quote
+                <Icon name="arrow_forward" className="text-[18px]" />
+              </Link>
+            </Button>
+          </div>
+        </Reveal>
+      </div>
     </main>
   );
 }
