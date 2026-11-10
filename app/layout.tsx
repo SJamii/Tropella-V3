@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 // Display face — headings, logo, numerals.
@@ -20,7 +21,6 @@ const body = Hanken_Grotesk({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tropella.com";
 const TITLE = "Tropella — From Tropics to your Table & Factory";
 const DESCRIPTION =
   "Premium tropical dried fruits, dried vegetables, and natural powders — handpicked and slow-dried for discerning kitchens and innovative manufacturers alike.";

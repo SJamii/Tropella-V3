@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { PRODUCT_DETAILS } from '@/lib/products';
+import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tropella.net';
+  const baseUrl = SITE_URL;
 
   return [
     {
