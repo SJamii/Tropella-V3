@@ -133,8 +133,8 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     description:
       "Pineapple rings with a light sugar coating, dried until soft and chewy. A sweet tropical treat to enjoy on its own or on top of your favourite desserts.",
     tags: ["Fruit", "Slices", "Sweetened"],
-    image: "/pineapple_sugar.jpeg",
-    imageAlt: "Sugar-coated dried pineapple slices in a bowl",
+    image: "/dried_sweet_pineapple_slices.jpeg",
+    imageAlt: "Sweetened dried pineapple rings piled on a plate",
     usage: [
       { icon: "nutrition", label: "Sweet snack" },
       { icon: "cake", label: "Top cakes & puddings" },
@@ -267,6 +267,54 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
       "No peeling, cutting or cooking",
     ],
     tip: "Mix with warm water or milk for a quick pumpkin purée.",
+  },
+  {
+    slug: "mango-peel-powder",
+    tone: "brand",
+    badge: "FRUIT · POWDER",
+    title: "Mango Peel Powder",
+    tagline: "Tangy, fruity powder from sun-dried mango peel.",
+    description:
+      "Mango peels, dried and finely milled into a soft golden powder with a tangy, fruity flavour. Stir it into drinks, chutneys and bakes for a gentle mango note — nothing from the fruit goes to waste.",
+    tags: ["Fruit", "Powder"],
+    image: "/mango_peel_powder.jpeg",
+    imageAlt: "Mound of golden mango peel powder on a plate",
+    usage: [
+      { icon: "blender", label: "Blend into smoothies" },
+      { icon: "restaurant", label: "Season chutneys & dressings" },
+      { icon: "bakery_dining", label: "Add to dough or batter" },
+      { icon: "emoji_food_beverage", label: "Stir into warm drinks" },
+    ],
+    benefits: [
+      "Tangy, fruity mango flavour",
+      "Made from the whole fruit — less waste",
+      "Easy to measure and store",
+    ],
+    tip: "Start with a teaspoon. The tangy flavour builds as it sits.",
+  },
+  {
+    slug: "green-chili-powder",
+    tone: "leaf",
+    badge: "VEGETABLE · POWDER",
+    title: "Green Chili Powder",
+    tagline: "Fresh, grassy heat in a fine green powder.",
+    description:
+      "Green chilies, dried and ground into a fine powder that keeps their fresh, grassy heat. Add a kick to curries, marinades and snacks without chopping a single chili.",
+    tags: ["Vegetable", "Powder"],
+    image: "/green_chili_powder.jpeg",
+    imageAlt: "Mound of green chili powder on a plate",
+    usage: [
+      { icon: "skillet", label: "Spice up curries & stir-fries" },
+      { icon: "outdoor_grill", label: "Add to marinades & rubs" },
+      { icon: "tapas", label: "Sprinkle on snacks & fries" },
+      { icon: "soup_kitchen", label: "Season soups & dals" },
+    ],
+    benefits: [
+      "Fresh green-chili heat and flavour",
+      "No chopping, no stinging hands",
+      "A pinch goes a long way",
+    ],
+    tip: "Add a pinch at a time. It's easy to add heat, hard to take it away.",
   },
 ];
 

@@ -58,7 +58,7 @@ const PRODUCTS: RangeItem[] = [
     title: "Sweetened Dried Pineapple Slices",
     description: "Sugar-kissed golden rings, soft & chewy",
     tags: ["Fruit", "Slices", "Sweetened"],
-    image: "/pineapple_sugar.jpeg",
+    image: "/dried_sweet_pineapple_slices.jpeg",
     placeholder: "Sweetened dried pineapple slices",
     span: "lg:col-span-3",
   },
@@ -117,6 +117,28 @@ const PRODUCTS: RangeItem[] = [
     placeholder: "Pumpkin powder",
     span: "sm:col-span-2 lg:col-span-3",
   },
+  {
+    tone: "brand",
+    href: "/products/mango-peel-powder",
+    badge: "FRUIT",
+    title: "Mango Peel Powder",
+    description: "Tangy, fruity powder from sun-dried peel",
+    tags: ["Fruit", "Powder"],
+    image: "/mango_peel_powder.jpeg",
+    placeholder: "Mango peel powder",
+    span: "lg:col-span-3",
+  },
+  {
+    tone: "leaf",
+    href: "/products/green-chili-powder",
+    badge: "VEGETABLE",
+    title: "Green Chili Powder",
+    description: "Fresh, grassy heat in a fine green powder",
+    tags: ["Vegetable", "Powder"],
+    image: "/green_chili_powder.jpeg",
+    placeholder: "Green chili powder",
+    span: "lg:col-span-3",
+  },
 ];
 
 export function Range() {
@@ -132,7 +154,7 @@ export function Range() {
           </h2>
         </div>
         <p className="max-w-[330px] text-[16px] leading-[1.55] text-ink-dim">
-          Ten core products, each available retail-ready or in bulk for
+          Twelve core products, each available retail-ready or in bulk for
           manufacturing.
         </p>
       </Reveal>
