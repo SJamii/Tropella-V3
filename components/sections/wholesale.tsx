@@ -34,10 +34,10 @@ export function Wholesale() {
         {/* Intro: package shot (left) + copy (right) */}
         <div className="mb-[60px] grid items-stretch gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
           <Reveal className="order-2 lg:order-1 lg:self-center">
-            <div className="relative aspect-3/2 w-full overflow-hidden rounded-[26px] border border-border">
+            <div className="relative aspect-video w-full overflow-hidden rounded-[26px] border border-border">
               <Image
-                src="/Final_Package_Design.png"
-                alt="Tropella dried fruits and superfood powders retail pouch — front and back of the final package design"
+                src="/tropella-pouch-range.png"
+                alt="The full Tropella pouch range — dehydrated mango, pineapple and lime slices plus moringa, ginger, garlic, tomato, pumpkin, green chili and mango peel powders"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
