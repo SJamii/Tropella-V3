@@ -23,18 +23,19 @@ const TESTIMONIALS: Testimonial[] = [
     image: "/reviewer-arefin-chisty.jpg",
   },
   {
+    tone: "brand",
+    quote:
+      "I'd tried Thai dried mango before, so I gave Tropella a go — honestly amazed. The dried mango and pineapple were top notch, and the moringa powder is really good too. Will definitely order again.",
+    name: "Hima Nur",
+    role: "Bangladesh",
+    image: "/reviewer-hima-nur.jpg",
+  },
+  {
     tone: "leaf",
     quote:
       "Finding a reliable export partner who understands organic standards was tough — until we found Tropella. Their documentation is flawless.",
     name: "Marcus K.",
     role: "Logistics Director, Berlin",
-  },
-  {
-    tone: "brand",
-    quote:
-      "My kids call these 'sunshine chips' — the only healthy snack they ask for by name. The mango slices are incredibly sweet.",
-    name: "Sarah T.",
-    role: "Happy Mom, New York",
   },
 ];
 
