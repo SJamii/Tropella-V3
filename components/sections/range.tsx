@@ -118,9 +118,9 @@ const PRODUCTS: RangeItem[] = [
     title: "Onion Powder",
     description: "Sweet, savoury onion flavour, ready to sprinkle",
     tags: ["Vegetable", "Powder"],
-    image: "/onion_powder/onion_powder-2.jpeg",
-    // Portrait photo in a wide card: crop low so the whole powder mound shows.
-    imagePosition: "object-[50%_70%]",
+    image: "/onion_powder/onion_powder-4.jpeg",
+    // Portrait photo in a wide card: crop low so the whole powder dish shows.
+    imagePosition: "object-[50%_80%]",
     placeholder: "Onion powder",
     span: "sm:col-span-2 sm:row-span-2 lg:col-span-4",
   },
