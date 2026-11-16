@@ -12,7 +12,7 @@ const PRODUCTS: RangeItem[] = [
     badge: "MOST LOVED · FRUIT",
     title: "Dried Mango Slices",
     description:
-      "Naturally sweet, sun-ripened mango — slow-dried in tender slices.",
+      "Naturally sweet, ripe mango — gently dehydrated in tender slices.",
     tags: ["Fruit", "Slices"],
     image: "/mango-slices.jpg",
     placeholder: "Dried mango slices",
@@ -91,7 +91,9 @@ const PRODUCTS: RangeItem[] = [
     title: "Garlic Powder",
     description: "Pungent, savory flavor base",
     tags: ["Vegetable", "Powder"],
-    image: "/garlic-powder.jpeg",
+    image: "/garlic_powder/garlic-powder-3.jpeg",
+    // Portrait photo in a wide card: crop low so the whole powder mound shows.
+    imagePosition: "object-[50%_75%]",
     placeholder: "Garlic powder",
     span: "lg:col-span-2",
   },
@@ -104,7 +106,23 @@ const PRODUCTS: RangeItem[] = [
     tags: ["Vegetable", "Powder"],
     image: "/ginger_powder.png",
     placeholder: "Ginger powder",
-    span: "lg:col-span-3",
+    span: "lg:col-span-2",
+  },
+  // Second feature block, mirroring the mango one: this big card sits on the
+  // right (lg), with ginger above and pumpkin below stacked to its left.
+  {
+    featured: true,
+    tone: "leaf",
+    href: "/products/onion-powder",
+    badge: "VEGETABLE · POWDER",
+    title: "Onion Powder",
+    description: "Sweet, savoury onion flavour, ready to sprinkle",
+    tags: ["Vegetable", "Powder"],
+    image: "/onion_powder/onion_powder-2.jpeg",
+    // Portrait photo in a wide card: crop low so the whole powder mound shows.
+    imagePosition: "object-[50%_70%]",
+    placeholder: "Onion powder",
+    span: "sm:col-span-2 sm:row-span-2 lg:col-span-4",
   },
   {
     tone: "leaf",
@@ -115,18 +133,18 @@ const PRODUCTS: RangeItem[] = [
     tags: ["Vegetable", "Powder"],
     image: "/pumpkin_powder.png",
     placeholder: "Pumpkin powder",
-    span: "sm:col-span-2 lg:col-span-3",
+    span: "lg:col-span-2",
   },
   {
     tone: "brand",
     href: "/products/mango-peel-powder",
     badge: "FRUIT",
     title: "Mango Peel Powder",
-    description: "Tangy, fruity powder from sun-dried peel",
+    description: "Tangy, fruity powder from dehydrated peel",
     tags: ["Fruit", "Powder"],
     image: "/mango_peel_powder.jpeg",
     placeholder: "Mango peel powder",
-    span: "lg:col-span-3",
+    span: "lg:col-span-2",
   },
   {
     tone: "leaf",
@@ -137,7 +155,18 @@ const PRODUCTS: RangeItem[] = [
     tags: ["Vegetable", "Powder"],
     image: "/green_chili_powder.jpeg",
     placeholder: "Green chili powder",
-    span: "lg:col-span-3",
+    span: "lg:col-span-2",
+  },
+  {
+    tone: "brand",
+    href: "/products/lime-powder",
+    badge: "FRUIT",
+    title: "Lime Powder",
+    description: "Bright, tangy citrus in a fine powder",
+    tags: ["Fruit", "Powder"],
+    image: "/lime_powder/lime-powder-1.jpeg",
+    placeholder: "Lime powder",
+    span: "lg:col-span-2",
   },
 ];
 
@@ -154,7 +183,7 @@ export function Range() {
           </h2>
         </div>
         <p className="max-w-[330px] text-[16px] leading-[1.55] text-ink-dim">
-          Twelve core products, each available retail-ready or in bulk for
+          Fourteen core products, each available retail-ready or in bulk for
           manufacturing.
         </p>
       </Reveal>

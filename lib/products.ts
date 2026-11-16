@@ -9,6 +9,11 @@ export type ProductUsage = {
   label: string;
 };
 
+export type ProductImage = {
+  src: string;
+  alt: string;
+};
+
 export type ProductDetail = {
   slug: string;
   tone: "brand" | "leaf";
@@ -21,6 +26,11 @@ export type ProductDetail = {
   tags: string[];
   image: string;
   imageAlt: string;
+  /**
+   * Portrait (3:4) photos for the detail-page gallery. When absent, the page
+   * shows `image` alone in a landscape frame.
+   */
+  gallery?: ProductImage[];
   usage: ProductUsage[];
   /** Plain, everyday benefits — taste, texture, convenience. No health claims. */
   benefits: string[];
@@ -33,9 +43,9 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tone: "brand",
     badge: "FRUIT · MOST LOVED",
     title: "Dried Mango Slices",
-    tagline: "Naturally sweet, sun-ripened mango — slow-dried in tender slices.",
+    tagline: "Naturally sweet, ripe mango — gently dehydrated in tender slices.",
     description:
-      "Ripe mangoes are sliced and slow-dried to hold on to their golden colour, rich aroma and soft, chewy bite. Enjoy them straight from the pack, or bring a taste of the tropics to your breakfast, baking and drinks.",
+      "Ripe mangoes are sliced and gently dehydrated to hold on to their golden colour, rich aroma and soft, chewy bite. Enjoy them straight from the pack, or bring a taste of the tropics to your breakfast, baking and drinks.",
     tags: ["Fruit", "Slices"],
     image: "/mango-slices.jpg",
     imageAlt: "Golden dried mango slices",
@@ -87,6 +97,24 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tags: ["Fruit", "Slices"],
     image: "/lime_slices.png",
     imageAlt: "Dried lime slices",
+    gallery: [
+      {
+        src: "/lime_slices.png",
+        alt: "Clear pouch packed with dried lime slices and a Tropella label",
+      },
+      {
+        src: "/lime-slices/lime-slices-1.jpeg",
+        alt: "Dried lime slices stacked on a plate in front of the Tropella backdrop",
+      },
+      {
+        src: "/lime-slices/lime-slices-2.jpeg",
+        alt: "Dried lime slices on a plate, close-up with a softly blurred backdrop",
+      },
+      {
+        src: "/lime-slices/lime-slices-3.jpeg",
+        alt: "Dried lime slices, closer front view showing the pale citrus segments",
+      },
+    ],
     usage: [
       { icon: "emoji_food_beverage", label: "Float in tea or warm water" },
       { icon: "local_bar", label: "Garnish cocktails & mocktails" },
@@ -205,8 +233,22 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     description:
       "Garlic cloves, dried and finely ground for full garlic flavour in seconds. Sprinkle it into everyday cooking, marinades and snacks with no peeling or chopping.",
     tags: ["Vegetable", "Powder"],
-    image: "/garlic-powder.jpeg",
-    imageAlt: "Garlic powder",
+    image: "/garlic_powder/garlic-powder-3.jpeg",
+    imageAlt: "Garlic powder heaped on a plate in front of whole garlic bulbs",
+    gallery: [
+      {
+        src: "/garlic_powder/garlic-powder-3.jpeg",
+        alt: "Garlic powder seen from a little further back, with the Tropella sign behind",
+      },
+      {
+        src: "/garlic_powder/garlic-powder-1.jpeg",
+        alt: "Garlic powder heaped on a plate in front of whole garlic bulbs and the Tropella backdrop",
+      },
+      {
+        src: "/garlic_powder/garlic-powder-2.jpeg",
+        alt: "Mound of garlic powder on a patterned cloth",
+      },
+    ],
     usage: [
       { icon: "skillet", label: "Season meat & vegetables" },
       { icon: "bakery_dining", label: "Make garlic bread & butter" },
@@ -273,9 +315,9 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tone: "brand",
     badge: "FRUIT · POWDER",
     title: "Mango Peel Powder",
-    tagline: "Tangy, fruity powder from sun-dried mango peel.",
+    tagline: "Tangy, fruity powder from dehydrated mango peel.",
     description:
-      "Mango peels, dried and finely milled into a soft golden powder with a tangy, fruity flavour. Stir it into drinks, chutneys and bakes for a gentle mango note — nothing from the fruit goes to waste.",
+      "Mango peels, dehydrated and finely milled into a soft golden powder with a tangy, fruity flavour. Stir it into drinks, chutneys and bakes for a gentle mango note — nothing from the fruit goes to waste.",
     tags: ["Fruit", "Powder"],
     image: "/mango_peel_powder.jpeg",
     imageAlt: "Mound of golden mango peel powder on a plate",
@@ -303,6 +345,24 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tags: ["Vegetable", "Powder"],
     image: "/green_chili_powder.jpeg",
     imageAlt: "Mound of green chili powder on a plate",
+    gallery: [
+      {
+        src: "/green-chili/green-chili-1.jpeg",
+        alt: "Green chili powder heaped in a clear dish",
+      },
+      {
+        src: "/green-chili/green-chili-2.jpeg",
+        alt: "Green chili powder, closer front view",
+      },
+      {
+        src: "/green-chili/green-chili-3.jpeg",
+        alt: "Green chili powder from a slightly lower angle",
+      },
+      {
+        src: "/green-chili/green-chili-4.jpeg",
+        alt: "Green chili powder in front of fresh green chilies and the Tropella backdrop",
+      },
+    ],
     usage: [
       { icon: "skillet", label: "Spice up curries & stir-fries" },
       { icon: "outdoor_grill", label: "Add to marinades & rubs" },
@@ -315,6 +375,86 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
       "A pinch goes a long way",
     ],
     tip: "Add a pinch at a time. It's easy to add heat, hard to take it away.",
+  },
+  {
+    slug: "onion-powder",
+    tone: "leaf",
+    badge: "VEGETABLE · POWDER",
+    title: "Onion Powder",
+    tagline: "Sweet, savoury onion flavour in a fine powder.",
+    description:
+      "Onions, dehydrated and finely milled into a soft powder that carries their sweet, savoury flavour. Season curries, soups and snacks in seconds — no peeling, chopping or teary eyes.",
+    tags: ["Vegetable", "Powder"],
+    image: "/onion_powder/onion_powder-2.jpeg",
+    imageAlt: "Onion powder heaped in a clear dish in front of fresh red onions",
+    gallery: [
+      {
+        src: "/onion_powder/onion_powder-2.jpeg",
+        alt: "Onion powder in front of fresh red onions and the Tropella backdrop",
+      },
+      {
+        src: "/onion_powder/onion_powder.jpeg",
+        alt: "Pale pink onion powder heaped in a clear dish",
+      },
+      {
+        src: "/onion_powder/onion_powder_3.jpeg",
+        alt: "Onion powder, closer front view",
+      },
+      {
+        src: "/onion_powder/onion_powder_4.jpeg",
+        alt: "Onion powder from a slightly lower angle",
+      },
+    ],
+    usage: [
+      { icon: "skillet", label: "Season curries & stir-fries" },
+      { icon: "soup_kitchen", label: "Stir into soups & gravies" },
+      { icon: "outdoor_grill", label: "Add to marinades & rubs" },
+      { icon: "tapas", label: "Sprinkle on snacks & fries" },
+    ],
+    benefits: [
+      "Sweet, savoury onion flavour",
+      "No peeling, chopping or tears",
+      "Blends evenly into any dish",
+    ],
+    tip: "Mix with a little water before adding to a hot pan so it doesn't clump.",
+  },
+  {
+    slug: "lime-powder",
+    tone: "brand",
+    badge: "FRUIT · POWDER",
+    title: "Lime Powder",
+    tagline: "Bright, tangy citrus in a fine powder.",
+    description:
+      "Limes, dehydrated and finely milled into a soft, creamy powder with a bright, tangy citrus flavour. Add a fresh squeeze of lime to drinks, dressings and cooking — no fresh limes needed.",
+    tags: ["Fruit", "Powder"],
+    image: "/lime_powder/lime-powder-1.jpeg",
+    imageAlt: "Mound of creamy lime powder on a plate",
+    gallery: [
+      {
+        src: "/lime_powder/lime-powder-1.jpeg",
+        alt: "Mound of creamy lime powder on a plate in front of the Tropella backdrop",
+      },
+      {
+        src: "/lime_powder/lime-powder-2.jpeg",
+        alt: "Lime powder, closer front view",
+      },
+      {
+        src: "/lime_powder/lime-powder-3.jpeg",
+        alt: "Lime powder in a round dish, seen from above",
+      },
+    ],
+    usage: [
+      { icon: "local_drink", label: "Mix into lemonade & cold drinks" },
+      { icon: "restaurant", label: "Season dressings & chutneys" },
+      { icon: "set_meal", label: "Sprinkle on fish & grilled meat" },
+      { icon: "tapas", label: "Dust over fruit & snacks" },
+    ],
+    benefits: [
+      "Bright, tangy lime flavour",
+      "No squeezing or wasted limes",
+      "Easy to measure and store",
+    ],
+    tip: "Start with half a teaspoon. Its tang is stronger than fresh juice.",
   },
 ];
 

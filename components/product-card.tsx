@@ -13,6 +13,8 @@ export type Product = {
   tags: string[];
   /** Real product image (in /public). Falls back to a placeholder if absent. */
   image?: string;
+  /** Tailwind `object-[x_y]` class to shift the crop (default: centred). */
+  imagePosition?: string;
   /** Placeholder caption + icon, used only when `image` is not set. */
   placeholder: string;
   iconName?: string;
@@ -27,6 +29,7 @@ const TONE = {
     arrow: "border-brand/40 bg-brand/[0.16]",
     arrowIcon: "text-brand",
     tag: "border-brand/35 bg-brand/[0.18] text-brand-soft",
+    solid: "bg-brand",
   },
   leaf: {
     hoverBorder: "hover:border-leaf/45",
@@ -34,6 +37,7 @@ const TONE = {
     arrow: "border-leaf/40 bg-leaf/[0.16]",
     arrowIcon: "text-leaf",
     tag: "border-leaf/35 bg-leaf/[0.18] text-leaf-soft",
+    solid: "bg-leaf",
   },
 } as const;
 
@@ -45,6 +49,7 @@ export function ProductCard({
   description,
   tags,
   image,
+  imagePosition,
   placeholder,
   iconName = "image",
   featured = false,
@@ -76,7 +81,7 @@ export function ProductCard({
               ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 640px"
               : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
           }
-          className="object-cover"
+          className={cn("object-cover", imagePosition)}
         />
       ) : (
         <ImagePlaceholder
@@ -98,8 +103,13 @@ export function ProductCard({
 
       {/* Category badge */}
       {featured ? (
-        <span className="absolute top-[18px] left-[18px] inline-flex items-center gap-2 rounded-full border border-white/[0.18] bg-[rgba(18,15,10,0.55)] px-[13px] py-[7px] text-[12px] font-semibold tracking-[0.05em] text-brand-soft backdrop-blur-[6px]">
-          <span className="size-[6px] rounded-full bg-brand" />
+        <span
+          className={cn(
+            "absolute top-[18px] left-[18px] inline-flex items-center gap-2 rounded-full border border-white/[0.18] bg-[rgba(18,15,10,0.55)] px-[13px] py-[7px] text-[12px] font-semibold tracking-[0.05em] backdrop-blur-[6px]",
+            t.badgeText,
+          )}
+        >
+          <span className={cn("size-[6px] rounded-full", t.solid)} />
           {badge}
         </span>
       ) : (
@@ -166,7 +176,12 @@ export function ProductCard({
 
         {/* Arrow */}
         {featured ? (
-          <span className="flex size-[48px] shrink-0 items-center justify-center rounded-full bg-brand">
+          <span
+            className={cn(
+              "flex size-[48px] shrink-0 items-center justify-center rounded-full",
+              t.solid,
+            )}
+          >
             <Icon name="arrow_outward" className="text-2xl text-canvas" />
           </span>
         ) : (
