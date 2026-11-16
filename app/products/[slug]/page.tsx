@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Eyebrow } from "@/components/eyebrow";
 import { FloatingProduce } from "@/components/floating-produce";
 import { GoodToKnow } from "@/components/good-to-know";
 import { Icon } from "@/components/icon";
+import { ProductGallery } from "@/components/product-gallery";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { PRODUCT_DETAILS, getProduct } from "@/lib/products";
@@ -39,11 +39,9 @@ export async function generateMetadata(
 
 const TONE = {
   brand: {
-    frame: "border-brand/40",
     tag: "border-brand/35 bg-brand/[0.14] text-brand-soft",
   },
   leaf: {
-    frame: "border-leaf/40",
     tag: "border-leaf/35 bg-leaf/[0.14] text-leaf-soft",
   },
 } as const;
@@ -61,7 +59,7 @@ export default async function ProductPage(
     <main id="tp-main" className="relative isolate overflow-hidden">
       <FloatingProduce />
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 pt-28 pb-16 md:px-8 md:pt-36 md:pb-[90px]">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 pt-28 pb-16 md:px-8 md:pt-36 md:pb-[90px]">
         <Link
           href="/#tp-range"
           className="mb-6 inline-flex min-h-11 items-center gap-2 text-[15px] font-medium text-ink-soft transition-colors hover:text-ink"
@@ -70,62 +68,59 @@ export default async function ProductPage(
           Back to range
         </Link>
 
-        <Reveal>
-          <div
-            className={cn(
-              "relative aspect-4/3 overflow-hidden rounded-3xl border-2 bg-surface-2",
-              t.frame,
-            )}
-          >
-            <Image
-              src={product.image}
-              alt={product.imageAlt}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 768px"
-              className="object-cover"
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-14">
+          <Reveal className="mx-auto w-full max-w-xl lg:sticky lg:top-28 lg:max-w-none">
+            <ProductGallery
+              images={
+                product.gallery ?? [{ src: product.image, alt: product.imageAlt }]
+              }
+              tone={product.tone}
+              portrait={!!product.gallery}
+              title={product.title}
             />
+          </Reveal>
+
+          <div className="min-w-0">
+            <Reveal>
+              <Eyebrow tone={product.tone} className="mb-3">
+                {product.badge}
+              </Eyebrow>
+              <h1 className="font-display text-[clamp(34px,5vw,52px)] leading-[1.02] font-extrabold tracking-[-0.03em] text-ink">
+                {product.title}
+              </h1>
+              <p className="mt-3 text-[17px] leading-[1.5] text-ink-soft">
+                {product.tagline}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {product.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className={cn(
+                      "rounded-full border px-3 py-[5px] text-[12px] font-semibold",
+                      t.tag,
+                    )}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-6 text-[16px] leading-[1.65] text-ink-muted">
+                {product.description}
+              </p>
+            </Reveal>
+
+            <Reveal className="mt-10">
+              <GoodToKnow
+                tone={product.tone}
+                usage={product.usage}
+                benefits={product.benefits}
+                tip={product.tip}
+              />
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal className="mt-8">
-          <Eyebrow tone={product.tone} className="mb-3">
-            {product.badge}
-          </Eyebrow>
-          <h1 className="font-display text-[clamp(34px,5vw,52px)] leading-[1.02] font-extrabold tracking-[-0.03em] text-ink">
-            {product.title}
-          </h1>
-          <p className="mt-3 text-[17px] leading-[1.5] text-ink-soft">
-            {product.tagline}
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {product.tags.map((tag) => (
-              <span
-                key={tag}
-                className={cn(
-                  "rounded-full border px-3 py-[5px] text-[12px] font-semibold",
-                  t.tag,
-                )}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <p className="mt-6 text-[16px] leading-[1.65] text-ink-muted">
-            {product.description}
-          </p>
-        </Reveal>
-
-        <Reveal className="mt-10">
-          <GoodToKnow
-            tone={product.tone}
-            usage={product.usage}
-            benefits={product.benefits}
-            tip={product.tip}
-          />
-        </Reveal>
-
-        <Reveal className="mt-10 grid gap-4 md:grid-cols-2">
+        <Reveal className="mt-10 grid gap-4 md:grid-cols-2 lg:mt-14">
           <div className="flex flex-col rounded-3xl border border-border bg-surface p-6">
             <Eyebrow className="mb-3">FOR YOUR TABLE</Eyebrow>
             <p className="mb-6 flex-1 text-[15px] leading-[1.55] text-ink-muted">
