@@ -385,12 +385,12 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     description:
       "Onions, dehydrated and finely milled into a soft powder that carries their sweet, savoury flavour. Season curries, soups and snacks in seconds — no peeling, chopping or teary eyes.",
     tags: ["Vegetable", "Powder"],
-    image: "/onion_powder/onion_powder-2.jpeg",
-    imageAlt: "Onion powder heaped in a clear dish in front of fresh red onions",
+    image: "/onion_powder/onion_powder-4.jpeg",
+    imageAlt: "Pink onion powder in a clear dish in front of fresh red onions",
     gallery: [
       {
-        src: "/onion_powder/onion_powder-2.jpeg",
-        alt: "Onion powder in front of fresh red onions and the Tropella backdrop",
+        src: "/onion_powder/onion_powder-4.jpeg",
+        alt: "Pink onion powder in a clear dish, seen from above, in front of fresh red onions and the Tropella sign",
       },
       {
         src: "/onion_powder/onion_powder.jpeg",
@@ -401,7 +401,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
         alt: "Onion powder, closer front view",
       },
       {
-        src: "/onion_powder/onion_powder_4.jpeg",
+        src: "/onion_powder/onion_powder_5.jpeg",
         alt: "Onion powder from a slightly lower angle",
       },
     ],
