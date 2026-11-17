@@ -75,7 +75,9 @@ export default async function ProductPage(
                 product.gallery ?? [{ src: product.image, alt: product.imageAlt }]
               }
               tone={product.tone}
-              portrait={!!product.gallery}
+              portrait={
+                !!product.gallery && product.galleryOrientation !== "landscape"
+              }
               title={product.title}
             />
           </Reveal>

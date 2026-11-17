@@ -337,6 +337,7 @@ export function ProductGallery({
               active={i === index}
               activeClass={t.active}
               onSelect={() => go(i)}
+              portrait={portrait}
             />
           ))}
         </div>
@@ -433,7 +434,8 @@ export function ProductGallery({
                     active={i === index}
                     activeClass={t.active}
                     onSelect={() => view(i, i > index ? 1 : -1)}
-                    className="w-13"
+                    portrait={portrait}
+                    className={portrait ? "w-13" : "w-16"}
                   />
                 ))}
               </div>
@@ -451,6 +453,7 @@ function Thumb({
   active,
   activeClass,
   onSelect,
+  portrait,
   className,
 }: {
   img: ProductImage;
@@ -458,6 +461,8 @@ function Thumb({
   active: boolean;
   activeClass: string;
   onSelect: () => void;
+  /** Matches the main frame: 3:4 thumbs for portrait galleries, 4:3 otherwise. */
+  portrait: boolean;
   className?: string;
 }) {
   return (
@@ -467,7 +472,8 @@ function Thumb({
       aria-current={active}
       onClick={onSelect}
       className={cn(
-        "group/thumb relative aspect-3/4 cursor-pointer overflow-hidden rounded-[14px] border-2 bg-surface-2 transition-[border-color,translate] duration-300",
+        "group/thumb relative cursor-pointer overflow-hidden rounded-[14px] border-2 bg-surface-2 transition-[border-color,translate] duration-300",
+        portrait ? "aspect-3/4" : "aspect-4/3",
         active ? cn(activeClass, "-translate-y-0.5") : "border-transparent",
         className,
       )}
