@@ -7,6 +7,7 @@ import { GoodToKnow } from "@/components/good-to-know";
 import { Icon } from "@/components/icon";
 import { ProductGallery } from "@/components/product-gallery";
 import { Reveal } from "@/components/reveal";
+import { VarietySwitcher } from "@/components/variety-switcher";
 import { Button } from "@/components/ui/button";
 import { PRODUCT_DETAILS, getProduct } from "@/lib/products";
 import { cn } from "@/lib/utils";
@@ -121,6 +122,12 @@ export default async function ProductPage(
             </Reveal>
           </div>
         </div>
+
+        {product.varieties && (
+          <Reveal className="mt-14 lg:mt-20">
+            <VarietySwitcher group={product.varieties} />
+          </Reveal>
+        )}
 
         <Reveal className="mt-10 grid gap-4 md:grid-cols-2 lg:mt-14">
           <div className="flex flex-col rounded-3xl border border-border bg-surface p-6">

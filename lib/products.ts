@@ -14,6 +14,217 @@ export type ProductImage = {
   alt: string;
 };
 
+/** One fruit variety shown in the "Choose your mango" switcher. */
+export type ProductVariety = {
+  name: string;
+  /** Name in Bangla script. */
+  nameBn: string;
+  region: string;
+  season: string;
+  /** Flavour scores out of 5. */
+  sweetness: number;
+  tang: number;
+  aroma: number;
+  note: string;
+  bestFor: string[];
+  /** Illustration colours: skin fades into flesh. */
+  colors: { skin: string; flesh: string };
+};
+
+/** The varieties a product is made from, and which fruit illustration to use. */
+export type VarietyGroup = {
+  fruit: "mango" | "pineapple" | "lime";
+  list: ProductVariety[];
+};
+
+// SAMPLE CONTENT: varieties, regions, seasons and flavour scores are
+// placeholders until Tropella confirms which varieties it uses.
+const MANGO_VARIETIES: VarietyGroup = {
+  fruit: "mango",
+  list: [
+    {
+      name: "Himsagar",
+      nameBn: "হিমসাগর",
+      region: "Rajshahi · Chapainawabganj",
+      season: "June",
+      sweetness: 5,
+      tang: 1,
+      aroma: 4,
+      note: "Honey-sweet and creamy with almost no fibre — the mango Bangladesh waits for every June.",
+      bestFor: ["Snacking", "Smoothies", "Desserts"],
+      colors: { skin: "#8DB04A", flesh: "#F5B731" },
+    },
+    {
+      name: "Langra",
+      nameBn: "ল্যাংড়া",
+      region: "Rajshahi",
+      season: "June – July",
+      sweetness: 4,
+      tang: 2,
+      aroma: 5,
+      note: "Intensely aromatic, with a gentle tang that keeps every bite bright.",
+      bestFor: ["Snacking", "Chutneys", "Baking"],
+      colors: { skin: "#5F8F3A", flesh: "#F2C14E" },
+    },
+    {
+      name: "Amrapali",
+      nameBn: "আম্রপালি",
+      region: "Nationwide · Hill Tracts",
+      season: "July",
+      sweetness: 5,
+      tang: 1,
+      aroma: 3,
+      note: "Small fruit with deep-orange flesh and the richest sweetness of the lot.",
+      bestFor: ["Lunchboxes", "Yogurt", "Bakes"],
+      colors: { skin: "#B99A3A", flesh: "#EE8A22" },
+    },
+    {
+      name: "Fazli",
+      nameBn: "ফজলি",
+      region: "Rajshahi · Chapainawabganj",
+      season: "July – August",
+      sweetness: 3,
+      tang: 2,
+      aroma: 3,
+      note: "A big, late-season mango with juicy, mildly sweet flesh.",
+      bestFor: ["Drinks", "Cooking", "Bulk"],
+      colors: { skin: "#A9B847", flesh: "#F6CF66" },
+    },
+    {
+      name: "Gopalbhog",
+      nameBn: "গোপালভোগ",
+      region: "Rajshahi",
+      season: "Late May – June",
+      sweetness: 4,
+      tang: 1,
+      aroma: 4,
+      note: "The first of the season — fragrant, sweet and smooth.",
+      bestFor: ["Snacking", "Gifting"],
+      colors: { skin: "#9CB24C", flesh: "#F4C03E" },
+    },
+    {
+      name: "Haribhanga",
+      nameBn: "হাঁড়িভাঙ্গা",
+      region: "Rangpur",
+      season: "June – July",
+      sweetness: 4,
+      tang: 1,
+      aroma: 3,
+      note: "Round and fleshy, with firm, fibreless flesh from the north.",
+      bestFor: ["Snacking", "Desserts"],
+      colors: { skin: "#6E9C3C", flesh: "#F3B23A" },
+    },
+  ],
+};
+
+const PINEAPPLE_VARIETIES: VarietyGroup = {
+  fruit: "pineapple",
+  list: [
+    {
+      name: "Honey Queen",
+      nameBn: "হানি কুইন",
+      region: "Madhupur, Tangail · Sylhet",
+      season: "May – July",
+      sweetness: 5,
+      tang: 2,
+      aroma: 4,
+      note: "Small and golden, with very sweet, fragrant flesh — the classic Madhupur pineapple.",
+      bestFor: ["Snacking", "Desserts", "Trail mix"],
+      colors: { skin: "#C9A43A", flesh: "#F6D04D" },
+    },
+    {
+      name: "Giant Kew",
+      nameBn: "জায়ান্ট কিউ",
+      region: "Sylhet · Srimangal · Hill Tracts",
+      season: "June – August",
+      sweetness: 3,
+      tang: 3,
+      aroma: 3,
+      note: "A large, juicy pineapple with pale flesh and a refreshing tang.",
+      bestFor: ["Drinks", "Baking", "Bulk"],
+      colors: { skin: "#8FA23E", flesh: "#F3E07A" },
+    },
+    {
+      name: "Ghorashal",
+      nameBn: "ঘোড়াশাল",
+      region: "Narsingdi",
+      season: "June – July",
+      sweetness: 4,
+      tang: 2,
+      aroma: 4,
+      note: "Medium-sized and aromatic, with a balanced sweet-tangy bite.",
+      bestFor: ["Snacking", "Cakes", "Salads"],
+      colors: { skin: "#A7953A", flesh: "#F2C94C" },
+    },
+  ],
+};
+
+const LIME_VARIETIES: VarietyGroup = {
+  fruit: "lime",
+  list: [
+    {
+      name: "Kagoji",
+      nameBn: "কাগজি লেবু",
+      region: "Nationwide",
+      season: "Year-round · peak June – September",
+      sweetness: 1,
+      tang: 5,
+      aroma: 4,
+      note: "The classic thin-skinned Bangladeshi lime — sharp, sour and wonderfully aromatic.",
+      bestFor: ["Tea", "Drinks", "Garnish"],
+      colors: { skin: "#5E9E36", flesh: "#D9E68A" },
+    },
+    {
+      name: "Seedless",
+      nameBn: "সিডলেস লেবু",
+      region: "Nationwide",
+      season: "Year-round · peak June – September",
+      sweetness: 1,
+      tang: 4,
+      aroma: 3,
+      note: "Juicy and nearly seed-free, so every slice dries into a clean, even wheel.",
+      bestFor: ["Drinks", "Garnish", "Infused water"],
+      colors: { skin: "#6BAA3C", flesh: "#E4EC9A" },
+    },
+    {
+      name: "Gondhoraj",
+      nameBn: "গন্ধরাজ লেবু",
+      region: "Nationwide",
+      season: "July – September",
+      sweetness: 1,
+      tang: 4,
+      aroma: 5,
+      note: "Famous for its intense, floral fragrance — a few slices perfume a whole pot of tea.",
+      bestFor: ["Tea", "Desserts", "Gifting"],
+      colors: { skin: "#4F8F2F", flesh: "#DCE89A" },
+    },
+    {
+      name: "Elachi",
+      nameBn: "এলাচি লেবু",
+      region: "Sylhet",
+      season: "July – September",
+      sweetness: 2,
+      tang: 3,
+      aroma: 5,
+      note: "A large, highly aromatic lime from Sylhet with generous, fragrant slices.",
+      bestFor: ["Tea", "Cooking", "Garnish"],
+      colors: { skin: "#6A9F3A", flesh: "#E8E59A" },
+    },
+    {
+      name: "Shorboti",
+      nameBn: "শরবতি লেবু",
+      region: "Nationwide",
+      season: "June – September",
+      sweetness: 2,
+      tang: 3,
+      aroma: 3,
+      note: "Juicy and mild, traditionally squeezed for shorbot — gentle and refreshing when dried.",
+      bestFor: ["Drinks", "Infused water"],
+      colors: { skin: "#7DB043", flesh: "#EEF0A8" },
+    },
+  ],
+};
+
 export type ProductDetail = {
   slug: string;
   tone: "brand" | "leaf";
@@ -33,6 +244,8 @@ export type ProductDetail = {
    */
   gallery?: ProductImage[];
   galleryOrientation?: "portrait" | "landscape";
+  /** Fruit varieties; when present the page shows a variety switcher. */
+  varieties?: VarietyGroup;
   usage: ProductUsage[];
   /** Plain, everyday benefits — taste, texture, convenience. No health claims. */
   benefits: string[];
@@ -71,6 +284,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
         alt: "Dried mango slices in a pouch resting on a marble counter",
       },
     ],
+    varieties: MANGO_VARIETIES,
     usage: [
       { icon: "nutrition", label: "Snack straight from the pack" },
       { icon: "breakfast_dining", label: "Chop into cereal or yogurt" },
@@ -95,6 +309,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tags: ["Fruit", "Slices"],
     image: "/Dried_pineapple_slices_original.png",
     imageAlt: "Golden dried pineapple rings",
+    varieties: PINEAPPLE_VARIETIES,
     // Landscape photos; a portrait frame would crop the plate of rings.
     galleryOrientation: "landscape",
     gallery: [
@@ -139,6 +354,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tags: ["Fruit", "Slices"],
     image: "/lime_slices.png",
     imageAlt: "Dried lime slices",
+    varieties: LIME_VARIETIES,
     gallery: [
       {
         src: "/lime_slices.png",
@@ -181,6 +397,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tags: ["Fruit", "Slices", "Sweetened"],
     image: "/dried_mango_flow.jpeg",
     imageAlt: "Sweetened dried mango slices",
+    varieties: MANGO_VARIETIES,
     // Mostly landscape photos; a portrait frame would crop the plated slices.
     galleryOrientation: "landscape",
     gallery: [
@@ -225,6 +442,7 @@ export const PRODUCT_DETAILS: ProductDetail[] = [
     tags: ["Fruit", "Slices", "Sweetened"],
     image: "/dried_sweet_pineapple_slices.jpeg",
     imageAlt: "Sweetened dried pineapple rings piled on a plate",
+    varieties: PINEAPPLE_VARIETIES,
     // Landscape / square photos; a portrait frame would crop the rings.
     galleryOrientation: "landscape",
     gallery: [
